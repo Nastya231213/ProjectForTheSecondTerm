@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000000e2;
+
+}
+
+nav {
+    background: #c10416;
+    width: 100%;
+
+}
+
+label.logo {
+    line-height: 75px;
+    font-weight: bold;
+    color: white;
+    font-size: 35px;
+    padding: 0 60px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 40px;
+
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+
+}
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 24px 25px;
+    text-align: center;
+    display: block;
+
+}
+
+nav a.active,
+a:hover {
+    background: #14a61b;
+
+}
+
+nav ul li ul.dropdown li {
+    display: block;
+}
+
+nav ul li ul.dropdown {
+    width: 100%;
+    background: #0fcf19;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+nav ul li ul.dropdown li a {
+    font-size: 13px;
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+
+}
+
+#categories_container {
+    margin: 10vh;
+    background: rgba(15, 207, 25, 0.3);
+    height: 10vh;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#categories_container ul li {
+    display: inline-block;
+
+}
+
+#categories_container ul li a {
+    color: #000;
+    font-size: 21px;
+    padding: 3px 5px;
+    border-radius: 10px;
+}
+
+#categories_container ul li a:hover {
+    background-color: rgba(15, 207, 25, 0.4);
+
+
+}
+
+#title {
+    margin-top: 20h;
+}
+
+#container {
+    margin: 30px auto;
+    width: 95%;
+    display: flex;
+    max-width: 1500px;
+    flex-wrap: wrap;
+    margin:auto;
+    align-items: center;
+    justify-content: left;
+}
+
+#container .card {
+    max-width: 300px;
+    height: 400px;
+    margin:20px;
+    flex: 1 1 280px;
+
+}
+
+#container .card .image {
+    height: 60%;
+    margin-bottom: 20px;
+}
+
+#container .card .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: 100%;
+    border-radius: 5px;
+
+}
+
+#container .card .name_dish {
+    text-align: left;
+    line-height: 3em;
+}
+
+#container .card .name_dish p {
+    font-size: 1.5rem;
+}
+
+#container .card .rating {
+    display: flex;
+}
+
+#container .card button {
+    border: 2px so;
+}
+
+#container .card .add_to_cart {
+    border: 2px solid black;
+    padding: 1em;
+    margin-top: 1em;
+    font-weight: bold;
+    width: 90%;
+    background: linear-gradient(to right, #0fcf19, #cfe5c5);
+    cursor: pointer;
+    position: relative;
+    margin: 5%;
+}
