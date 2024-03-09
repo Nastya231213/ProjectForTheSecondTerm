@@ -24,11 +24,12 @@ label.logo {
     color: white;
     font-size: 35px;
     padding: 0 60px;
+    width: 10%;
 }
 
 nav ul {
     float: right;
-    margin-right: 40px;
+    margin-right: 10px;
 
 }
 
@@ -49,8 +50,8 @@ nav ul li a {
 }
 
 nav a.active,
-a:hover {
-    background: #14a61b;
+nav ul li a:hover {
+    background: #a30c1b;
 
 }
 
@@ -60,19 +61,55 @@ nav ul li ul.dropdown li {
 
 nav ul li ul.dropdown {
     width: 100%;
-    background: #0fcf19;
+    background: #c10416;
     position: absolute;
     z-index: 999;
     display: none;
 }
 
 nav ul li ul.dropdown li a {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 nav ul li:hover ul.dropdown {
     display: block;
 
+}
+
+.search {
+    display: inline-block;
+}
+
+.search form {
+    display: flex;
+    margin: 0;
+}
+
+.search input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.search input:hover {
+    border: 1px #72a0d4;
+}
+
+.search button {
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.search button:hover {
+    background-color: #ccc;
 }
 
 #categories_container {
@@ -113,7 +150,7 @@ nav ul li:hover ul.dropdown {
     display: flex;
     max-width: 1500px;
     flex-wrap: wrap;
-    margin:auto;
+    margin: auto;
     align-items: center;
     justify-content: left;
 }
@@ -121,7 +158,7 @@ nav ul li:hover ul.dropdown {
 #container .card {
     max-width: 300px;
     height: 400px;
-    margin:20px;
+    margin: 20px;
     flex: 1 1 280px;
 
 }
@@ -162,8 +199,71 @@ nav ul li:hover ul.dropdown {
     margin-top: 1em;
     font-weight: bold;
     width: 90%;
-    background: linear-gradient(to right, #0fcf19, #cfe5c5);
+    background: linear-gradient(to right, #cf0f1f, #8bd480);
     cursor: pointer;
     position: relative;
     margin: 5%;
+}
+
+/*registration */
+#sign_up_form_body {
+    background-position: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),  url("http://localhost/QuickCuisine/private/assets/images/La-Rotonde.webp");
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+
+    
+}
+  
+
+.form_for_refistration {
+    width: 300px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    background: #fff;
+    text-align: center;
+    margin: 1% auto 0;
+    padding: 30px;
+    
+    
+}
+
+.form_for_refistration h1 {
+    color: #c10416;
+    margin-bottom: 20px;
+}
+
+.input-registration {
+    border-radius: 20px;
+
+    border: 1px solid #999;
+    padding: 5px;
+    margin: 10px 0;
+    outline: none;
+    width: 100%;
+
+
+}
+
+.signup_button {
+    background: linear-gradient(to right, #cf0f1f, #a30c1b);
+
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size:17px;
+    margin: 10px 0;
+    cursor:pointer;
+    border: none;
+
+}
+
+hr{
+    margin-top:10px;
+    width:80%;
+}
+textarea {
+    resize: none;
 }

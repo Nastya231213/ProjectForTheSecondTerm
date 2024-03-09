@@ -3,7 +3,7 @@
 
 <div id="categories_container">
     <ul>
-
+        <li><a href="#">All</a></li>
         <?php foreach (CATEGORIES as $category) : ?>
             <li><a href="#"><?= $category ?></a></li>
 
