@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=11222">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 
+    <script defer src="<?= ASSETS ?>/js/validation_registration.js"></script>
 </head>
 
 <body id="sign_up_form_body">
@@ -14,19 +16,43 @@
     <div class="form_for_refistration">
         <img src="<?= ASSETS ?>/images/icons8-user-100.png">
         <h1>Sign Up Now</h1>
-        <form method="POST">
-            <input type="text" class="input-registration" placeholder="Your name">
-            <input type="text" class="input-registration" placeholder="Your surname">
+        <form method="POST"> 
+            <div class="form-control">
+                <input type="text" id="name" class="input-registration" placeholder="Your name">
 
-            <input type="email" class="input-registration" placeholder="Your email">
-            <input type="number" class="input-registration" placeholder="Your phone number">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
+            <div class="form-control">
 
-            <textarea rows="3" class="input-registration" placeholder="Enter your address"></textarea>
-            <input type="password" class="input-registration" placeholder="Yoru password">
+                <input type="text" id="surname" class="input-registration" placeholder="Your surname">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
+            <div class="form-control">
+                <input type="email" id="email" class="input-registration" placeholder="Your email">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
+            <div class="form-control">
+                <textarea rows="3" id="address" class="input-registration" placeholder="Enter your address"></textarea>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
+            <div class="form-control">
+                <input type="password" id="password"class="input-registration" placeholder="Your password">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
+            <div class="form-control">
+                <input type="password" id="confirmPassword" class="input-registration" placeholder="Confirm password">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i><small>Error message</small>
+            </div>
             <p><span><input type="checkbox" name="terms" id="termsCheckbox"></span>
                 I agree with the terms of service</p>
             <hr>
-            <button type="button" class="signup_button">Sign up</button>
+            <button type="submit" class="signup_button">Sign up</button>
 
             <p>Do you have an account? <a href="#">Sign in</a></p>
         </form>
