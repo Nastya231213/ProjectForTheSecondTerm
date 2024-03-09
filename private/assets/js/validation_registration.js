@@ -3,28 +3,31 @@ const surname = document.getElementById("surname");
 const email = document.getElementById("email");
 const address = document.getElementById("address");
 const password = document.getElementById("password");
-const termsCheckbox=document.getElementById('termsCheckbox');
+const termsCheckbox = document.getElementById('termsCheckbox');
 const passwordConfirm = document.getElementById("confirmPassword");
 
 const form = document.querySelector("form");
 const errorMessage = document.getElementById("errorMessage");
 form.addEventListener("submit", (e) => {
     checkRegistrationInputs();
-    if(!allValidationsPass()){
+    if (!allValidationsPass()) {
         e.preventDefault();
-
     }
-
-
 })
-function checkRegistrationInputs(){
+function checkRegistrationInputs() {
     const nameValue = name.value.trim();
     const surnameValue = surname.value.trim();
     const addressValue = address.value.trim();
     const emailValue = email.value.trim();
     const passwordValue = password.value.trim();
     const passwordValueConfirm = passwordConfirm.value.trim();
-    const isConfirmTermsChecked=
+    const isConfirmTermsChecked = termsCheckbox.checked;
+    if (!isConfirmTermsChecked) {
+        const formControl = termsCheckbox.parentElement;
+        const sm = formControl.querySelector('small');
+        sm.innerText = "Confirm the terms";
+
+    }
     if (nameValue === '') {
         setError(name, 'Username cannot be blank');
     } else {
@@ -48,9 +51,9 @@ function checkRegistrationInputs(){
     }
     if (passwordConfirm === '') {
         setError(passwordConfirm, 'Confirm password cannot be blank');
-    }else if(passwordValue!=passwordValueConfirm){
-        setError(passwordConfirm,'Passwords does not match');
-    }else {
+    } else if (passwordValue != passwordValueConfirm) {
+        setError(passwordConfirm, 'Passwords does not match');
+    } else {
         setSuccess(passwordConfirm);
     }
     if (emailValue === '') {
@@ -60,10 +63,10 @@ function checkRegistrationInputs(){
     } else {
         setSuccess(email);
     }
- 
+
 }
-function allValidationsPass(){
-    if(form.querySelectorAll('.form-control.error').length>0){
+function allValidationsPass() {
+    if (form.querySelectorAll('.form-control.error').length > 0) {
         return false;
     }
     return true;

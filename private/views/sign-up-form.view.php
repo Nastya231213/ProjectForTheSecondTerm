@@ -16,31 +16,31 @@
     <div class="form_for_refistration">
         <img src="<?= ASSETS ?>/images/icons8-user-100.png">
         <h1>Sign Up Now</h1>
-        <form method="POST"> 
+        <form method="POST">
             <div class="form-control">
-                <input type="text" id="name" class="input-registration" placeholder="Your name">
+                <input type="text" id="name" name="name" class="input-registration" placeholder="Your name">
 
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
             <div class="form-control">
 
-                <input type="text" id="surname" class="input-registration" placeholder="Your surname">
+                <input type="text" name="surname" id="surname" class="input-registration" placeholder="Your surname">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
             <div class="form-control">
-                <input type="email" id="email" class="input-registration" placeholder="Your email">
+                <input type="email" name="email" id="email" class="input-registration" placeholder="Your email">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
             <div class="form-control">
-                <textarea rows="3" id="address" class="input-registration" placeholder="Enter your address"></textarea>
+                <textarea name="address" rows="3" id="address" class="input-registration" placeholder="Enter your address"></textarea>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
             <div class="form-control">
-                <input type="password" id="password"class="input-registration" placeholder="Your password">
+                <input type="password" name="password" id="password" class="input-registration" placeholder="Your password">
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
@@ -49,8 +49,12 @@
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i><small>Error message</small>
             </div>
-            <p><span><input type="checkbox" name="terms" id="termsCheckbox"></span>
-                I agree with the terms of service</p>
+            <div class="form-control">
+                <input type="checkbox" name="terms" id="termsCheckbox"></span>
+                I agree with the terms of service
+                <small>Error message</small>
+            </div>
+
             <hr>
             <button type="submit" class="signup_button">Sign up</button>
 
