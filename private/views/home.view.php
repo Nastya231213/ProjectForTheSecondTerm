@@ -141,3 +141,4 @@
     </div>
     
 </div>
+<?php $this->view("includes/footer") ?>

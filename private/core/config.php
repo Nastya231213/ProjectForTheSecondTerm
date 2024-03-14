@@ -8,3 +8,5 @@ define('DB_USER','root');
 define('DB_PASS','');
 define('DB_DRIVER','mysql');
 
+define("ADMIN_EMAIL", "admin@gmail.com");
+define("ADMIN_PASSWORD", "123123");

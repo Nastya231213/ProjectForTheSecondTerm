@@ -19,7 +19,17 @@ class UserModel extends Model
 
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
-        return $this->insert($this->tableName,['name'=>$name,'surname'=>$surname,'address'=>$address,'email'=>$email,'password'=>$passwordHash]);
+        return $this->insert($this->tableName, ['name' => $name, 'surname' => $surname, 'address' => $address, 'email' => $email, 'password' => $passwordHash]);
     }
+    function loginUser($email, $password)
+    {
+        $user = $this->selectOne($this->tableName, ['email' => $email]);
+        if ($user && password_verify($password, $user->password)) {
+            $_SESSION['userId']=$user->id;
 
+            return true;
+        }
+
+        return false;
+    }
 }

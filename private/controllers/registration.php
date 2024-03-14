@@ -21,9 +21,11 @@ class Registration extends Controller
                 $password = trim($_POST['password']);
                 $userModel->registerUser($name,$surname,$address,$password,$email);
                 $this->redirect('login');
+            }else{
+                $data['errorMessage']="A user with such email exists";
             }
         }
 
-        $this->view('sign-up-form',);
+        $this->view('sign-up-form',$data);
     }
 }

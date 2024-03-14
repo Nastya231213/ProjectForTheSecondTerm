@@ -15,7 +15,6 @@ body {
 nav {
     background: #c10416;
     width: 100%;
-    position: fixed;
 
 }
 
@@ -221,7 +220,7 @@ nav ul li:hover ul.dropdown {
   
 
 .form_for_refistration {
-    width: 300px;
+    width: 400px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
     background: #fff;
     text-align: center;
@@ -231,8 +230,20 @@ nav ul li:hover ul.dropdown {
     border-radius: 10px;
 
 }
+.form_for_login {
+    width: 400px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+    margin:5% auto 0;
+    border-radius: 10px;
 
-.form_for_refistration h1 {
+}
+.form_for_refistration h1,
+.form_for_login h1
+
+ {
     color: #c10416;
     margin-bottom: 5px;
 }
@@ -244,7 +255,7 @@ nav ul li:hover ul.dropdown {
     margin: 10px 0;
     outline: none;
     width: 100%;
-    font-size: 17px;
+    font-size: 19px;
 
 }
 
@@ -297,6 +308,10 @@ nav ul li:hover ul.dropdown {
     margin: 10px 0;
     cursor:pointer;
     border: none;
+
+}
+.signup_button:hover{
+    background: linear-gradient(to right, #b00505, #923d46);
 
 }
 
@@ -371,3 +386,71 @@ textarea {
     }
 }
 
+
+.alert{
+    background-color: rgba(249, 244, 244, 0.822);
+    padding:10px 30px;
+    min-width:420px;
+    position:absolute;
+    right:0px;
+    top:2vh;
+    border-radius:4px;
+    border-left:8px solid #a30c1b;
+    overflow:hidden;
+
+}
+
+.alert .fa-exclamation-circle{
+    position:absolute;
+    left:20px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#a30c1b;
+    font-size:30px;
+}
+.alert .msg{
+    padding:0 20px;
+    font-size:23px;
+    color:#a30c1b;
+
+}
+.alert .close:hover{
+    background-color: #b82d3b;
+
+}
+.alert.show{
+    animation:slide 2s ease forwards;
+}
+@keyframes slide{
+    0%{
+        transform:translateX(100%);
+    }
+    20%{
+        transform:translateX(-4%);
+    }
+    75%{
+        transform:translateX(10%);
+    }
+    100%{
+        transform:translateX(-10px);
+    }
+  
+}
+
+.alert .close{
+    background-color: #a30c1b;
+    transform:translateY(-50%);
+    top:50%;
+    right:0px;
+    padding:15px 18px;
+    position:absolute;
+    cursor:pointer;
+}
+
+.close .fa-times{
+    color:#e7e0e0;
+    font-size:20px;
+    line-height:17px;
+
+    
+}
