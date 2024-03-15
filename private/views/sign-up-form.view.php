@@ -7,7 +7,6 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=12222">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-
     <script defer src="<?= ASSETS ?>/js/validation_registration.js"></script>
 </head>
 

@@ -25,7 +25,7 @@ class UserModel extends Model
     {
         $user = $this->selectOne($this->tableName, ['email' => $email]);
         if ($user && password_verify($password, $user->password)) {
-            $_SESSION['userId']=$user->id;
+            $_SESSION['user']=$user;
 
             return true;
         }

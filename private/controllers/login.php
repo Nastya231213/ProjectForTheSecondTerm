@@ -6,28 +6,26 @@ class Login extends Controller
 
    function index()
    {
-      $data=array();
+      $data = array();
 
       if (count($_POST) > 0) {
 
-         $userModel=new UserModel();
-         $email=$_POST['email'];
-         $password=$_POST['password'];
-         if($user= $userModel->loginUser($email,$password)){
-            
-            if($email==ADMIN_EMAIL && $password==ADMIN_PASSWORD){
-               $this->redirect("admin/home");
+         $userModel = new UserModel();
+         $email = $_POST['email'];
+         $password = $_POST['password'];
+         if ($userModel->loginUser($email, $password)) {
 
-            }else{
+            if ($email == ADMIN_EMAIL && $password == ADMIN_PASSWORD) {
+               $_SESSION['admin'] = true;
+               $this->redirect("admin");
+            } else {
                $this->redirect("home");
-
             }
-
-         }else{
-            $data['errorMessage']="Email or password wrong";
+         } else {
+            $data['errorMessage'] = "Email or password wrong";
          }
       }
 
-      $this->view("login-form",$data);
+      $this->view("login-form", $data);
    }
 }

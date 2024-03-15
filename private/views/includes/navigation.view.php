@@ -29,7 +29,7 @@
       <li><a href="#">Drinks</a></li>
 
       <li><a href="#">Delivery and payment</a></li>
-      <li><a href="#">Login <i class="fas fa-sign-in-alt"></i></a></li>
+      <li><a href="login">Login <i class="fas fa-sign-in-alt"></i></a></li>
 
       <li><a href="registration">Sign up <i class="fas fa-user-plus"></i></a></li>
 
