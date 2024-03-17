@@ -1,6 +1,7 @@
 <?php 
 define('ROOT','http://localhost/QuickCuisine/public');
 define('ASSETS','http://localhost/QuickCuisine/private/assets');
+define('UPLOADS','http://localhost/QuickCuisine/private/assets/uploads/');
 
 define('DB_NAME','quick_cuisine');
 define('DB_HOST','localhost');

@@ -12,4 +12,19 @@ class Admin extends Controller
             $this->view('admin/dashboard',['adminName'=>$adminName]);
         }
     }
+    function category()
+    {
+
+        if (!isAdmin()) {
+            $this->redirect('home');
+        } else {
+            $this->view('admin/categories');
+        }
+    }
+
+
+    function add_category()
+    {
+        $this->view('admin/add-category');
+    }
 }

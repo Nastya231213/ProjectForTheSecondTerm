@@ -47,7 +47,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-md-3 p-4">
+        <div class="col-md-6 p-4">
             <a href="">
                 <div class="card rounded-card shadow">
                     <div class="card-body">
@@ -71,3 +71,4 @@
         </div>
     </div>
 </div>
+<?php $this->view("includes/footer") ?>
