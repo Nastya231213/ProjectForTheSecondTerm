@@ -486,7 +486,13 @@ textarea {
     background-color: #b82d3b;
 
 }
+#actions_buttons{
+    display:flex;
 
+}
+#actions_buttons a{
+    margin:5px;
+}
 .alert.show,
 .alert_success.show {
     animation: slide 2s ease forwards;
@@ -559,15 +565,14 @@ textarea {
 }
 
 
-
 .image {
     margin: 3vh;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
     border-radius: 3px;
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 120px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 

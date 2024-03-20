@@ -15,16 +15,18 @@
                 </tr>
                 <?php foreach ($allCategories as $category) : ?>
                     <tr>
-                        <td><img class="image" src="<?= UPLOADS ?>360_F_176331484_nLHY9EoW0ETwPZaS9OBXPGbCJhT70GZe.jpg"></td>
+                        <td><img class="image" src="<?php echo UPLOADS.$category->picture ?>"></td>
                         <td><?= $category->name ?></td>
                         <td><?= $category->description ?></td>
                         <td>
-                            <a href="" class="btn btn-sm btn-success">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="/delete" class="btn btn-sm btn-danger">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <div id="actions_buttons" >
+                                <a href="category/edit/<?= $category->id ?>" class="btn btn-sm btn-success">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a id="deleteButton" href="category/delete/<?= $category->id ?>" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -36,7 +38,7 @@
     </div>
 </div>
 <?php if (isset($errorMessage)) : ?>
-    <div class="alert show error">
+    <div class="alert show ">
         <span class="fas fa-exclamation-circle"></span>
         <span class="msg"><?= $errorMessage ?></span>
         <span class="close">
@@ -55,15 +57,5 @@
     </div>
 <?php endif; ?>
 
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const closeButtons = document.querySelectorAll('.close');
-
-        closeButtons.forEach(closeButton => {
-            closeButton.addEventListener('click', function() {
-                const alert = this.parentElement;
-                alert.style.display = 'none';
-            });
-        });
-    });
-</script>
+<script defer src="<?= ASSETS ?>/js/confirmation_categories.js"></script>
+<?php $this->view("includes/footer") ?>

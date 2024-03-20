@@ -9,6 +9,11 @@ class CategoryModel extends Model
        ['name'=>$name,'description'=>$description,'picture'=>$imageName]);
 
     }
+
+    function getCategory($id){
+
+        return $this->selectOne($this->tableName,['id'=>$id]);
+    }
     function addImage()
     {
         if (count($_FILES) > 0) {
@@ -30,7 +35,15 @@ class CategoryModel extends Model
         return null;
     }
 
+
     function getAllCategories(){
         return $this->select($this->tableName);
+    }
+    function deleteCategory($id){
+        return $this->delete($this->tableName,['id'=>$id]);
+    }
+    function editCategory($id,$name,$description){
+        $updatedImage=$this->addImage();
+      return $this->update($this->tableName,['name'=>$name,'description'=>$description,'picture'=>$updatedImage],['id'=>$id]);
     }
 }
