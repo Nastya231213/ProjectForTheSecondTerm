@@ -1,31 +1,34 @@
-<?php $this->view("admin/navigation", ['title' => 'Add a new category']) ?>
+<?php $this->view("admin/navigation", ['title' => 'Dishes']) ?>
 <div class="container mx-auto shadow mt-5 ">
-    <a class="btn btn-success float-end " href="category/add"><i class="fa fa-plus"></i> Add New</a>
+    <a class="btn btn-success float-end " href="dish/add"><i class="fa fa-plus"></i> Add New</a>
     <br>
     <div class="card-group justify-content-center col-md-10 mt-5 mx-auto">
-
-        <?php if (isset($allCategories) && count($allCategories) > 0) : ?>
-
-            <h2 class="mb-5 mt-3">Categories</h2>
+        <?php if (isset($allDishes) && count($allDishes) > 0) : ?>
+            <h2 class="mb-5 mt-3">Dishes</h2>
 
             <table class="table table-striped ">
                 <tr>
                     <th>Image</th>
                     <th>Name</th>
+                    <th>Category</th>
+
                     <th>Description</th>
+                    <th>Intredients</th>
                     <th>Actions</th>
                 </tr>
-                <?php foreach ($allCategories as $category) : ?>
+                <?php foreach ($allDishes as $dish) : ?>
                     <tr>
-                        <td><img class="image" src="<?php echo UPLOADS . $category->picture ?>"></td>
-                        <td><?= $category->name ?></td>
-                        <td><?= $category->description ?></td>
+                        <td><img class="image" src="<?php echo UPLOADS . $dish->picture ?>"></td>
+                        <td><?= $dish->name ?></td>
+                        <td><?= $dish->category_name ?></td>
+                        <td><?= $dish->description ?></td>
+                        <td><?= $dish->ingredients ?></td>
                         <td>
                             <div id="actions_buttons">
-                                <a href="category/edit/<?= $category->id ?>" class="btn btn-sm btn-success">
+                                <a href="dish/edit/<?= $dish->id ?>" class="btn btn-sm btn-success">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a id="deleteButton" href="category/delete/<?= $category->id ?>" class="btn btn-sm btn-danger">
+                                <a id="deleteButton" href="dish/delete/<?= $dish->id ?>" class="btn btn-sm btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </div>
@@ -35,7 +38,7 @@
 
             </table>
         <?php else : ?>
-            <h4 class="m-5">No categories were added</h4>
+            <h4 class="m-5">No dishes were added</h4>
         <?php endif; ?>
     </div>
 </div>

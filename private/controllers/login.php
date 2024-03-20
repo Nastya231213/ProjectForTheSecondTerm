@@ -15,8 +15,7 @@ class Login extends Controller
          $password = $_POST['password'];
          if ($userModel->loginUser($email, $password)) {
 
-            if ($email == ADMIN_EMAIL && $password == ADMIN_PASSWORD) {
-               $_SESSION['admin'] = true;
+            if (isAdmin()) {
                $this->redirect("admin");
             } else {
                $this->redirect("home");
