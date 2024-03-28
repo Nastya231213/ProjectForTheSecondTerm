@@ -1,8 +1,21 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  if(isset($_GET['functionname']) ){
+    if($_GET['functionname'] == 'decreaseAmount'){
+      decreaseAmount();
+
+    }else if($_GET['functionname'] =='increaseAmount'){
+      increaseAmount();
+    }
+
+  }
+}
 
 function isAdmin()
 {
-  if ($_SESSION['admin'] && $_SESSION['user']->email == ADMIN_EMAIL) {
+  if (
+    $_SESSION['user']->email == ADMIN_EMAIL  && password_verify(ADMIN_PASSWORD, $_SESSION['user']->password)
+  ) {
     return true;
   } else {
     return false;
@@ -20,4 +33,28 @@ function addMessage($data)
     unset($_SESSION['errorMessage']);
   }
   return $data;
+}
+
+function decreaseAmount()
+{
+  if (isset($_GET['id'])) {
+    $dishId = $_GET['id'];
+
+    if (isset($_SESSION['cart'][$dishId])) {
+      if ($_SESSION['cart'][$dishId]->quantity != 1) {
+        $_SESSION['cart'][$dishId]->quantity--;
+      }
+    }
+  }
+}
+
+function increaseAmount()
+{
+  if (isset($_GET['id'])) {
+    $dishId = $_GET['id'];
+
+    if (isset($_SESSION['cart'][$dishId])) {
+      $_SESSION['cart'][$dishId]->quantity++;
+    }
+  }
 }

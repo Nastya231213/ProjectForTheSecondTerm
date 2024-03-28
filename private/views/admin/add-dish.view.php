@@ -9,6 +9,10 @@
             <input name="name" type="text" class="form-control">
         </div>
         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Price ($)</label>
+            <input name="price" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Description</label>
             <textarea name="description" class="form-control" rows="3"></textarea>
         </div>
@@ -17,7 +21,7 @@
             <textarea name="ingredients" class="form-control" rows="3"></textarea>
         </div>
         <select name="category" class="form-select">
-        <option>Select the category</option>
+            <option>Select the category</option>
 
             <?php foreach ($allCategories as $category) : ?>
                 <option value="<?= $category->id ?>"><?= $category->name ?></option>

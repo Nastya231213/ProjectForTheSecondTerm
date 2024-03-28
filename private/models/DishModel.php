@@ -1,14 +1,18 @@
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    $dishModel = new DishModel();
+    $dishModel->addDishToCart();
+}
 class DishModel extends Model
 {
     private $tableName = "dish";
-    function addDish($name, $description, $ingredients,$cat_id)
+    function addDish($name, $description, $ingredients, $cat_id, $price)
     {
         $imageName = $this->addImage();
         return $this->insert(
             $this->tableName,
-            ['name' => $name, 'description' => $description, 'picture' => $imageName, 'ingredients' => $ingredients,'category_id' => $cat_id]
+            ['name' => $name, 'description' => $description, 'picture' => $imageName, 'ingredients' => $ingredients, 'category_id' => $cat_id, 'price' => $price]
         );
     }
 
@@ -44,25 +48,39 @@ class DishModel extends Model
         $this->query("SELECT dish.*, category.name AS category_name
         FROM dish
         JOIN category ON dish.category_id = category.id;");
-        
-      return $this->resultset();
+
+        return $this->resultset();
     }
     function deleteDish($id)
     {
         return $this->delete($this->tableName, ['id' => $id]);
     }
-    function editDish($id, $name, $description,$category_id)
+    function editDish($id, $name, $description, $category_id)
     {
         $updatedImage = $this->addImage();
-        $data['name']=$name;
-        $data['description']=$description;
-        $data['category_id']=$category_id;
-        if($updatedImage!=null){
-            $data['picture']= $updatedImage;
-
+        $data['name'] = $name;
+        $data['description'] = $description;
+        $data['category_id'] = $category_id;
+        if ($updatedImage != null) {
+            $data['picture'] = $updatedImage;
         }
-        
-        return $this->update($this->tableName,$data,
-        ['id' => $id]);
+
+        return $this->update(
+            $this->tableName,
+            $data,
+            ['id' => $id]
+        );
+    }
+    
+    function addDishToCart()
+    {
+        $dishId = $_POST['id'];
+        $dish = $this->getDish($dishId);
+        if (isset($_SESSION['cart'][$dishId])) {
+            $_SESSION['cart'][$dishId]->quantity++;
+        } else {
+            $_SESSION['cart'][$dishId] = $dish;
+            $_SESSION['cart'][$dishId]->quantity = 1;
+        }
     }
 }

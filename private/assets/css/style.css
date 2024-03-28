@@ -13,8 +13,11 @@ body {
 }
 
 nav {
-    background: #c10416;
+    background: #c10404;
     width: 100%;
+
+    z-index: 99;
+    height: 73px;
 
 }
 
@@ -56,7 +59,7 @@ nav ul li a {
     color: white;
     font-size: 17px;
     text-transform: uppercase;
-    padding: 24px 25px;
+    padding: 23px 25px;
     text-align: center;
     display: block;
 
@@ -68,11 +71,11 @@ nav ul li a:hover {
 
 }
 
-nav ul li ul.dropdown li {
+nav ul li ul.dropdown_ li {
     display: block;
 }
 
-nav ul li ul.dropdown {
+nav ul li ul.dropdown_ {
     width: 100%;
     background: #c10416;
     position: absolute;
@@ -80,11 +83,11 @@ nav ul li ul.dropdown {
     display: none;
 }
 
-nav ul li ul.dropdown li a {
+nav ul li ul.dropdown_ li a {
     font-size: 14px;
 }
 
-nav ul li:hover ul.dropdown {
+nav ul li:hover ul.dropdown_ {
     display: block;
 
 }
@@ -127,12 +130,25 @@ nav ul li:hover ul.dropdown {
 
 #categories_container {
     margin: 10vh;
-    background: rgba(15, 207, 25, 0.3);
+    background: #c10404;
     height: 10vh;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+#details {
+    align-self: center;
+    color: rgb(3, 185, 3);
+    margin-top: 20px;
+    ;
+}
+
+#details :hover {
+    color: red;
 }
 
 #categories_container ul li {
@@ -141,15 +157,21 @@ nav ul li:hover ul.dropdown {
 }
 
 #categories_container ul li a {
-    color: #000;
+    color: #fff;
     font-size: 21px;
     padding: 3px 5px;
     border-radius: 10px;
 }
 
 #categories_container ul li a:hover {
-    background-color: rgba(15, 207, 25, 0.4);
+    background-color: rgba(207, 15, 15, 0.4);
 
+
+}
+
+#container {
+    display: flex;
+    padding: 30px;
 
 }
 
@@ -157,66 +179,109 @@ nav ul li:hover ul.dropdown {
     margin-top: 20h;
 }
 
-#container {
-    margin: 30px auto;
-    width: 95%;
+#search-addon {
+    background: linear-gradient(to right, #d1280e, #a50d0d);
+    height: 38px;
+    color: white;
+}
+
+#filters {
+
+    max-width: 450px;
+    max-height: 600px;
+    background-color: rgba(211, 211, 211, 0.231);
+    border: 1px solid rgb(195, 191, 191);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#filters h1 {
+    font-size: 31px;
+    margin: 10px;
+}
+
+#apply_button {
+    margin-top: 30px;
+    background-color: #b00505;
+    ;
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+#dishes {
+    margin: 20px auto;
     display: flex;
-    max-width: 1500px;
     flex-wrap: wrap;
     margin: auto;
     align-items: center;
     justify-content: left;
 }
 
-#container .card {
-    max-width: 300px;
-    height: 400px;
+#dishes .card {
+    width: 300px;
+    height: 520px;
     margin: 20px;
-    flex: 1 1 280px;
-    padding: 15px;
+    padding: 50px;
+    background-color: rgba(211, 211, 211, 0.231);
+    display: flex;
+
     border-radius: 10px;
-    border: 1px solid gray;
+    border: 1px solid rgb(195, 191, 191);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#container .card .image {
-    height: 60%;
+#dishes .card .image_dish {
+    height: 200px;
+    width: 250px;
     margin-bottom: 20px;
+    align-self: center;
+
 }
 
-#container .card .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: 100%;
+#dishes .card .image_dish img {
+    height: 200px;
+    width: 250px;
+    object-fit: cover;
     border-radius: 5px;
-
 }
 
-#container .card .name_dish {
+#dishes .card .name_dish {
     text-align: left;
     line-height: 3em;
 }
 
-#container .card .name_dish p {
-    font-size: 1.5rem;
+#dishes .card .name_dish p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 4px 0px 4px 4px;
 }
 
-#container .card .rating {
+#dishes .card .rating {
     display: flex;
 }
 
 
 
-#container .card .add_to_cart {
+#dishes .card .add_to_cart {
     z-index: 5;
-
-    border: 2px solid black;
+    border: 2px solid rgb(127, 126, 126);
     padding: 1em;
-    margin-top: 1em;
     font-weight: bold;
     width: 90%;
-    background: linear-gradient(to right, #cf0f1f, #8bd480);
+    border-radius: 40px;
+    background: linear-gradient(to right, #c5c6c5, #dedcdc9f);
     cursor: pointer;
-    margin: 5%;
+    margin: auto;
+}
+
+#dishes .card .add_to_cart:hover {
+    background: linear-gradient(to right, #ab0808, #c10416);
+    color: #fff;
 
 }
 
@@ -268,7 +333,6 @@ nav ul li:hover ul.dropdown {
     margin: 10px 0;
     outline: none;
     width: 100%;
-    font-size: 19px;
 
 }
 
@@ -486,13 +550,16 @@ textarea {
     background-color: #b82d3b;
 
 }
-#actions_buttons{
-    display:flex;
+
+#actions_buttons {
+    display: flex;
 
 }
-#actions_buttons a{
-    margin:5px;
+
+#actions_buttons a {
+    margin: 5px;
 }
+
 .alert.show,
 .alert_success.show {
     animation: slide 2s ease forwards;
@@ -596,4 +663,80 @@ textarea {
     text-align: center;
     font-weight: bold;
     margin-bottom: 5vh;
+}
+
+#cart h1 {
+    color: #a30c1b;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+}
+
+#cart {
+    position: fixed;
+    height: 100vh;
+    z-index: 500;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    background-color: #453e3bfc;
+}
+
+#cart .checkout div {
+    background-color: #a30c1b;
+    height: 60px;
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+#cart .checkout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    color: #fff;
+
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#cart .checkout div:nth-child(2) {
+    background: #1C1F25;
+}
+
+.active #cart {
+    right: 0;
+}
+
+#cart li {
+    display: grid;
+    grid-template-columns: 150px repeat(3, 1fr);
+    color: #fff;
+    row-gap: 10px;
+    margin-bottom: 20px;
+}
+
+#cart li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cart li div img {
+    width: 120px;
+    height: 100px;
+    border-radius:5px;
+    border: 1px solid #fff;
+
+}
+
+.regulate{
+
+    background-color: rgb(29, 27, 27);
+    color:#fff;
+    border-radius: 50%;
+    width:30px;
 }

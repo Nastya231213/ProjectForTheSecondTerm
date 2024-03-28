@@ -17,7 +17,6 @@
             <i class="fas fa-exclamation-circle"></i><small>Error message</small>
         </div>
 
-        <hr>
         <button type="submit" class="signup_button">Sign In</button>
 
         <p>Don't have an account? <a href="registration">Sign Up</a></p>
