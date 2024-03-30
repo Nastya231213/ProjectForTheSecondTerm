@@ -46,57 +46,47 @@
 
 
     </div>
-    <div id="dishes">
-        <?php foreach ($allDishes as $dish) : ?>
-            <div class="card">
+    <?php if (isset($allDishes) && count($allDishes) > 0) : ?>
 
-                <a href="" class="image_dish ">
-                    <img src="<?= UPLOADS ?><?= $dish->picture ?>">
-                </a>
+        <div id="dishes">
+            <?php foreach ($allDishes as $dish) : ?>
+                <form method="POST" >
+                <div class="card">
 
-                <div class="card_caption">
-                    <p class="rating">
-                        <i class="fas fa-star" style="color: #FFD43B;"></i>
-                        <i class="fas fa-star" style="color: #FFD43B;"></i>
-                        <i class="fas fa-star" style="color: #FFD43B;"></i>
-                        <i class="fas fa-star" style="color: #FFD43B;"></i>
-                        <i class="fas fa-star" style="color: #FFD43B;"></i>
-                    </p>
-                    <div class="name_dish">
-                        <p><?= $dish->name ?></p>
+                    <a href="" class="image_dish ">
+                        <img src="<?= UPLOADS ?><?= $dish->picture ?>">
+                    </a>
+
+                    <div class="card_caption">
+                        <p class="rating">
+                            <i class="fas fa-star" style="color: #FFD43B;"></i>
+                            <i class="fas fa-star" style="color: #FFD43B;"></i>
+                            <i class="fas fa-star" style="color: #FFD43B;"></i>
+                            <i class="fas fa-star" style="color: #FFD43B;"></i>
+                            <i class="fas fa-star" style="color: #FFD43B;"></i>
+                        </p>
+                        <div class="name_dish">
+                            <p><?= $dish->name ?></p>
+                        </div>
+                        <h4>$<?= $dish->price ?></h4>
+                        <p class="discount"></p>
+
                     </div>
-                    <p class="price">$450</p>
-                    <p class="discount"></p>
+                    <input name="idDish" hidden  value="<?=$dish->id?>">
+
+                    <input type="submit" class="add_to_cart" value="Add to cart">
+                    <a href="" id="details">Details about the dish</a>
 
                 </div>
+                </form>
+            <?php endforeach; ?>
+        </div>
+    <?php else : ?>
 
-                <button data-id="<?= $dish->id ?>" class="add_to_cart">Add to cart</button>
-                <a href="" id="details">Details about the dish</a>
+        <h2>Not dishes found</h2>
+    <?php endif; ?>
 
-            </div>
-            </a>
-        <?php endforeach; ?>
-    </div>
-    <script>
-        $(".add_to_cart").click(function(e) {
-            e.preventDefault();
-
-            var dishId = $(this).data("id");
-            $.ajax({
-                url: 'private\models\DishModel.php',
-                type: 'POST',
-                data: {
-                    functionname: 'addToCart',
-                    id: dishId
-                },
-                success: function(response) {
-                    $("#cart").html(response);
-                }
-            });
-        });
  
-
-    </script>
 
 </div>
 </div>

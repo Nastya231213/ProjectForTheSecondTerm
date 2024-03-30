@@ -1,9 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $dishModel = new DishModel();
-    $dishModel->addDishToCart();
-}
 class DishModel extends Model
 {
     private $tableName = "dish";
@@ -51,6 +47,15 @@ class DishModel extends Model
 
         return $this->resultset();
     }
+    function findDish($dishes, $dishId)
+    {
+        foreach ($dishes as $dish) {
+            if($dish->id==$dishId){
+                return $dish;
+            }  
+        }
+        return null;
+    }
     function deleteDish($id)
     {
         return $this->delete($this->tableName, ['id' => $id]);
@@ -70,17 +75,5 @@ class DishModel extends Model
             $data,
             ['id' => $id]
         );
-    }
-    
-    function addDishToCart()
-    {
-        $dishId = $_POST['id'];
-        $dish = $this->getDish($dishId);
-        if (isset($_SESSION['cart'][$dishId])) {
-            $_SESSION['cart'][$dishId]->quantity++;
-        } else {
-            $_SESSION['cart'][$dishId] = $dish;
-            $_SESSION['cart'][$dishId]->quantity = 1;
-        }
     }
 }

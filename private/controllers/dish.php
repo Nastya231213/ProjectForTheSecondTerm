@@ -56,6 +56,7 @@ class Dish extends Controller
             }
             $this->redirect('category');
         } else {
+            
             $categoryModel = new CategoryModel();
             $data['allCategories'] = $categoryModel->getAllCategories();
             $data['dish'] = $dishModel->getDish($id);

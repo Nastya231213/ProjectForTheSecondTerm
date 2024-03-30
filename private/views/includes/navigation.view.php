@@ -43,26 +43,37 @@
   <div class="container_cart">
     <div id="cart">
       <h1>Your cart</h1>
-      <div class="">
+
+      <div>
+      <?php $total=0;?>
+
+      <?php if (isset($_SESSION['cart']) & count($_SESSION['cart'])>0)  : ?>
         <ul>
-          <li>
 
-            <?php foreach ($_SESSION['cart'] as $product) : ?>
-              <div><img src="<?= UPLOADS . $product->picture ?>"> </div>
-              <div><?= $product->price ?> $</div>
-              <div><?= $product->quantity ?></div>
+              <?php foreach ($_SESSION['cart'] as $product) : ?>
+                <li>
 
-              <div><button class="regulate minus" data-id="<?= $product->id ?>">-</button>
-                <button class="regulate plus" data-id="<?= $product->id ?>">+</button>
-              </div>
+                <div><img src="<?= UPLOADS . $product['pictureName'] ?>"> </div>
+                <div><?= $product['price'] ?> $</div>
+                <div><?= $product['quantity']?></div>
+                <?php $total+=$product['quantity']*$product['price']?>
+                <div><button class="regulate minus" data-id="<?= $product['id'] ?>">-</button>
+                  <button class="regulate plus" data-id="<?= $product['id'] ?>">+</button>
+                </div>
+                </li>
 
-            <?php endforeach; ?>
-          </li>
+              <?php endforeach; ?>
+        
         </ul>
-        </li>
+
+        <?php else : ?>
+              <h2 class="text-white ">No products in your cart</h2>
+            <?php endif; ?>
         <div class="checkout">
-          <div class="total">0</div>
+          <div class="total"><?=$total?> $</div>
           <div class="closeCart">Close</div>
         </div>
       </div>
+  
+          </li>
     </div>

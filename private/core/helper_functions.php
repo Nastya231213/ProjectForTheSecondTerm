@@ -1,13 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  if(isset($_GET['functionname']) ){
-    if($_GET['functionname'] == 'decreaseAmount'){
+  if (isset($_GET['functionname'])) {
+    if ($_GET['functionname'] == 'decreaseAmount') {
       decreaseAmount();
-
-    }else if($_GET['functionname'] =='increaseAmount'){
+    } else if ($_GET['functionname'] == 'increaseAmount') {
       increaseAmount();
     }
-
   }
 }
 
@@ -41,8 +39,8 @@ function decreaseAmount()
     $dishId = $_GET['id'];
 
     if (isset($_SESSION['cart'][$dishId])) {
-      if ($_SESSION['cart'][$dishId]->quantity != 1) {
-        $_SESSION['cart'][$dishId]->quantity--;
+      if ($_SESSION['cart'][$dishId]['quantity'] != 1) {
+        $_SESSION['cart'][$dishId]['quantity']--;
       }
     }
   }
@@ -54,7 +52,7 @@ function increaseAmount()
     $dishId = $_GET['id'];
 
     if (isset($_SESSION['cart'][$dishId])) {
-      $_SESSION['cart'][$dishId]->quantity++;
+      $_SESSION['cart'][$dishId]['quantity']++;
     }
   }
 }
