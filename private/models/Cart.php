@@ -4,18 +4,21 @@ class Cart
 {
     public function addDish($itemId, $itemName, $itemPicture, $quantity, $price)
     {
-        if (isset($_SESSION['cart'][$itemId])) {
-            $_SESSION['cart'][$itemId]['quantity'] += $quantity;
+
+        if (isset($_SESSION['cart']) && isset($_SESSION['cart'][$itemId]) && is_array($_SESSION['cart'][$itemId])) {
+           
+            $_SESSION['cart'][$itemId]['quantity'] += (int)$quantity; 
         } else {
             $_SESSION['cart'][$itemId] = array(
-                'id' => $itemId,
-                'name' => $itemName,
-                'quantity' => $quantity,
-                'price' => $price,
-                'pictureName' => $itemPicture
+                'id' => (int)$itemId, 
+                'name' => htmlspecialchars($itemName), 
+                'quantity' => (int)$quantity, 
+                'price' => (float)$price, 
+                'pictureName' => htmlspecialchars($itemPicture) 
             );
         }
     }
+
 
 
 

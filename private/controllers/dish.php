@@ -56,11 +56,17 @@ class Dish extends Controller
             }
             $this->redirect('category');
         } else {
-            
+
             $categoryModel = new CategoryModel();
             $data['allCategories'] = $categoryModel->getAllCategories();
             $data['dish'] = $dishModel->getDish($id);
             $this->view('admin/edit-dish', $data);
         }
+    }
+    function details($index){
+        $productModel = new DishModel();
+        
+        $product = $productModel->getProduct($index);
+        $this->view('product_information',['product'=>$product]);
     }
 }

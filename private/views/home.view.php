@@ -75,14 +75,13 @@
                     <input name="idDish" hidden  value="<?=$dish->id?>">
 
                     <input type="submit" class="add_to_cart" value="Add to cart">
-                    <a href="" id="details">Details about the dish</a>
+                    <a href="dish/details/<?=$dish->id?>" id="details">Details about the dish</a>
 
                 </div>
                 </form>
             <?php endforeach; ?>
         </div>
     <?php else : ?>
-
         <h2>Not dishes found</h2>
     <?php endif; ?>
 

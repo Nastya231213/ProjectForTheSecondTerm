@@ -5,6 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       decreaseAmount();
     } else if ($_GET['functionname'] == 'increaseAmount') {
       increaseAmount();
+    } else if ($_GET['functionname'] == 'deleteProduct') {
+      deleteProduct();
     }
   }
 }
@@ -53,6 +55,17 @@ function increaseAmount()
 
     if (isset($_SESSION['cart'][$dishId])) {
       $_SESSION['cart'][$dishId]['quantity']++;
+    }
+  }
+}
+
+function deleteProduct()
+{
+  if (isset($_GET['id'])) {
+    $dishId = $_GET['id'];
+
+    if (isset($_SESSION['cart'][$dishId])) {
+      unset($_SESSION['cart'][$dishId]);
     }
   }
 }

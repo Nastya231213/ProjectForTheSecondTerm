@@ -267,7 +267,7 @@ nav ul li:hover ul.dropdown_ {
 
 
 
-#dishes .card .add_to_cart {
+.add_to_cart {
     z-index: 5;
     border: 2px solid rgb(127, 126, 126);
     padding: 1em;
@@ -279,7 +279,7 @@ nav ul li:hover ul.dropdown_ {
     margin: auto;
 }
 
-#dishes .card .add_to_cart:hover {
+.add_to_cart:hover {
     background: linear-gradient(to right, #ab0808, #c10416);
     color: #fff;
 
@@ -564,7 +564,16 @@ textarea {
 .alert_success.show {
     animation: slide 2s ease forwards;
 }
-
+.add_reviews{
+    width:10%;
+    height:40px;
+    background-color: #339e39;
+    border: #333;
+    color:#fff;
+    padding: 15px;
+    font-size:22px;
+    border-radius: 5px;
+}
 @keyframes slide {
     0% {
         transform: translateX(100%);
@@ -713,7 +722,7 @@ textarea {
 
 #cart li {
     display: grid;
-    grid-template-columns: 150px repeat(3, 1fr);
+    grid-template-columns: 150px repeat(4, 1fr);
     color: #fff;
     row-gap: 10px;
     margin-bottom: 20px;

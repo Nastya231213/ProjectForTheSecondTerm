@@ -76,4 +76,8 @@ class DishModel extends Model
             ['id' => $id]
         );
     }
+
+    function getProduct($id){
+        return $this->selectOne($this->tableName,['id'=>$id]);
+    }
 }

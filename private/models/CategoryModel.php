@@ -1,18 +1,20 @@
 <?php
 class CategoryModel extends Model
 {
-    private $tableName="category";
+    private $tableName = "category";
     function addCategory($name, $description)
     {
-       $imageName=$this->addImage();
-       return $this->insert($this->tableName,
-       ['name'=>$name,'description'=>$description,'picture'=>$imageName]);
-
+        $imageName = $this->addImage();
+        return $this->insert(
+            $this->tableName,
+            ['name' => $name, 'description' => $description, 'picture' => $imageName]
+        );
     }
 
-    function getCategory($id){
+    function getCategory($id)
+    {
 
-        return $this->selectOne($this->tableName,['id'=>$id]);
+        return $this->selectOne($this->tableName, ['id' => $id]);
     }
     function addImage()
     {
@@ -36,14 +38,17 @@ class CategoryModel extends Model
     }
 
 
-    function getAllCategories(){
+    function getAllCategories()
+    {
         return $this->select($this->tableName);
     }
-    function deleteCategory($id){
-        return $this->delete($this->tableName,['id'=>$id]);
+    function deleteCategory($id)
+    {
+        return $this->delete($this->tableName, ['id' => $id]);
     }
-    function editCategory($id,$name,$description){
-        $updatedImage=$this->addImage();
-      return $this->update($this->tableName,['name'=>$name,'description'=>$description,'picture'=>$updatedImage],['id'=>$id]);
+    function editCategory($id, $name, $description)
+    {
+        $updatedImage = $this->addImage();
+        return $this->update($this->tableName, ['name' => $name, 'description' => $description, 'picture' => $updatedImage], ['id' => $id]);
     }
 }
