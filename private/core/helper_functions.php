@@ -21,7 +21,13 @@ function isAdmin()
     return false;
   }
 }
-
+function isLoggedIn(){
+  if(isset($_SESSION['user'])){
+    return true;
+  }else{
+    return false;
+  }
+}
 function addMessage($data)
 {
 

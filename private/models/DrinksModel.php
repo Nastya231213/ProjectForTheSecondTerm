@@ -1,17 +1,18 @@
 <?php
-class CategoryModel extends Model
+
+class DrinksModel extends Model
 {
-    private $tableName = "category";
-    function addCategory($name, $description,$type)
+    private $tableName = "drink";
+    function addDrink($name, $description, $composition, $cat_id, $price, $volume)
     {
         $imageName = $this->addImage();
         return $this->insert(
             $this->tableName,
-            ['name' => $name, 'description' => $description, 'picture' => $imageName,'type'=>$type]
+            ['name' => $name, 'description' => $description, 'volume' => $volume, 'picture' => $imageName, 'composition' => $composition, 'category_id' => $cat_id, 'price' => $price]
         );
     }
 
-    function getCategory($id)
+    function getDrink($id)
     {
 
         return $this->selectOne($this->tableName, ['id' => $id]);
@@ -37,18 +38,11 @@ class CategoryModel extends Model
         return null;
     }
 
+    function getDrinks(){
+        $this->query("SELECT drink.*, category.name AS category_name
+        FROM drink
+        JOIN category ON drink.category_id = category.id;");
 
-    function getAllCategories()
-    {
-        return $this->select($this->tableName);
-    }
-    function deleteCategory($id)
-    {
-        return $this->delete($this->tableName, ['id' => $id]);
-    }
-    function editCategory($id, $name, $description)
-    {
-        $updatedImage = $this->addImage();
-        return $this->update($this->tableName, ['name' => $name, 'description' => $description, 'picture' => $updatedImage], ['id' => $id]);
+        return $this->resultset();
     }
 }

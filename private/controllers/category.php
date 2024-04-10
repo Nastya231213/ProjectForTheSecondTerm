@@ -25,7 +25,9 @@ class Category extends Controller
             $categoryModel = new CategoryModel();
             $name = $_POST['name'];
             $description = $_POST['description'];
-            if ($categoryModel->addCategory($name, $description)) {
+            $type = $_POST['type'];
+
+            if ($categoryModel->addCategory($name, $description,$type)) {
                 $_SESSION['successMessage'] = 'The category has been added';
             } else {
                 $_SESSION['errorMessage'] = 'Something goes wrong..The category has not been added';
@@ -33,6 +35,7 @@ class Category extends Controller
             $this->redirect('category');
         }
         $this->view('admin/add-category');
+
     }
 
     function edit($id)

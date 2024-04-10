@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="col-md-3 ">
-            <a href="dish">
+            <a href="drinks">
                 <div class="card rounded-card shadow">
                     <div class="card-body">
                         <i class="fas fa-coffee fa-4x"></i><br>
@@ -48,7 +48,7 @@
             </a>
         </div>
         <div class="col-md-6 p-4">
-            <a href="">
+            <a href="category">
                 <div class="card rounded-card shadow">
                     <div class="card-body">
                         <i class="fas fa-list-alt fa-4x"></i><br>

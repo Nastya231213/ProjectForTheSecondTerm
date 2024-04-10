@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=113323">
+  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=1133223">
 </head>
 
 <body>
@@ -19,13 +19,18 @@
     <a href="#"><label class="logo">QuickCuisne</label></a>
     <ul>
 
-      <li><a href="#">Dishes</a></li>
-      <li><a href="#">Drinks</a></li>
+      <li><a href="home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
+      <li><a href="home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
 
-      <li><a href="#">Delivery and payment</a></li>
-      <li><a href="login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+      <li><a href="#">Delivery and payment <i class="fas fa-truck"></i></a></li>
+      <?php if (!isLoggedIn()) : ?>
+        <li><a href="login">Login <i class="fas fa-sign-in-alt"></i></a></li>
 
-      <li><a href="registration">Sign up <i class="fas fa-user-plus"></i></a></li>
+        <li><a href="registration">Sign up <i class="fas fa-user-plus"></i></a></li>
+      <?php else : ?>
+        <li><a href="logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+
+      <?php endif; ?>
       <li><a href="#" class="shopping">Cart <i class="fas fa-cart-plus"></i></a></li>
 
       <div class="search">
@@ -59,7 +64,7 @@
                 <div><?= $product['quantity'] ?></div>
                 <?php $total += $product['quantity'] * $product['price'] ?>
                 <div><a data-id="<?= $product['id'] ?>" href="#" class="delete"><i class="fas fa-trash text-white "></i></a></div>
-          
+
                 <div><button class="regulate minus" data-id="<?= $product['id'] ?>">-</button>
                   <button class="regulate plus" data-id="<?= $product['id'] ?>">+</button>
                 </div>
@@ -81,23 +86,23 @@
       </li>
     </div>
   </div>
-<script>
-    $(".delete").click(function (e) {
-        e.preventDefault();
-    
-        var dishId = $(this).data("id");
-        $.ajax({
-            url: 'private\core\helper_functions.php',
-            type: 'GET',
-            data: {
-                functionname: 'deleteProduct',
-                id: dishId
-            },
-            success: function (response) {
-                $("#cart").html(response);
-                bindEvents();
-    
-            }
-        });
+  <script>
+    $(".delete").click(function(e) {
+      e.preventDefault();
+
+      var dishId = $(this).data("id");
+      $.ajax({
+        url: 'private\core\helper_functions.php',
+        type: 'GET',
+        data: {
+          functionname: 'deleteProduct',
+          id: dishId
+        },
+        success: function(response) {
+          $("#cart").html(response);
+          bindEvents();
+
+        }
+      });
     });
-</script>
+  </script>

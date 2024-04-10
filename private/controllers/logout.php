@@ -1,8 +1,10 @@
 <?php
 
 
-class Logout extends Controller{
-    function index(){
+class Logout extends Controller
+{
+    function index()
+    {
 
         unset($_SESSION['user']);
 

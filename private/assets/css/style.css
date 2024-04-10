@@ -565,7 +565,7 @@ textarea {
     animation: slide 2s ease forwards;
 }
 .carousel-inner{
-    height:120vh;
+    height:90vh;
 }
 .add_reviews{
     width:10%;
