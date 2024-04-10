@@ -17,7 +17,7 @@ nav {
     width: 100%;
 
     z-index: 99;
-    height: 73px;
+    height: 88px;
 
 }
 
@@ -57,9 +57,9 @@ nav ul li {
 
 nav ul li a {
     color: white;
-    font-size: 17px;
+    font-size: 20px;
     text-transform: uppercase;
-    padding: 23px 25px;
+    padding: 25px 26px;
     text-align: center;
     display: block;
 
@@ -563,6 +563,9 @@ textarea {
 .alert.show,
 .alert_success.show {
     animation: slide 2s ease forwards;
+}
+.carousel-inner{
+    height:120vh;
 }
 .add_reviews{
     width:10%;
