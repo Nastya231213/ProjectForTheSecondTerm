@@ -28,7 +28,7 @@ class Drinks extends Controller
             $category_id = $_POST['category'];
             $volume = $_POST['volume'];
             $price = $_POST['price'];
-            if ($drinkModel->addDrink($name, $description, $composition, $category_id, $price,$volume)) {
+            if ($drinkModel->addDrink($name, $description, $composition, $category_id, $price, $volume)) {
                 $_SESSION['successMessage'] = 'The dish has been added';
             } else {
                 $_SESSION['errorMessage'] = 'Something goes wrong..The dish has not been added';
@@ -39,4 +39,39 @@ class Drinks extends Controller
         $data['allCategories'] = $categoryModel->getAllCategories();
         $this->view('admin/add-drink', $data);
     }
+    function edit($id)
+    {
+        $drinkModel = new DrinksModel();
+        if (count($_POST) > 0) {
+            $name = $_POST['name'];
+            $composition = $_POST['composition'];
+            $description = $_POST['description'];
+            $category_id = $_POST['category'];
+            $volume = $_POST['volume'];
+            $price = $_POST['price'];
+
+            if ($drinkModel->editDrink($id, $name, $description, $category_id, $composition, $volume, $price)) {
+                $_SESSION['successMessage'] = 'The category has been updated';
+            } else {
+                $_SESSION['errorMessage'] = 'Something goes wrong..The category has not been updated';
+            }
+            $this->redirect('drinks');
+        } else {
+
+            $categoryModel = new CategoryModel();
+            $data['allCategories'] = $categoryModel->getAllCategories();
+            $data['drink'] = $drinkModel->getDrinks($id)[0];
+
+            $this->view('admin/edit-drink', $data);
+        }
+    }
+
+    function delete($index)
+    {
+        $drinkModel = new DrinksModel();
+        $drinkModel->deleteDrink($index);
+        $this->view('admin/drinks');
+ 
+    }
+   
 }

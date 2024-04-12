@@ -2,7 +2,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="https://citatnica.ru/wp-content/uploads/2021/06/9d170b6bf4f7096ee71ecdd78607f6ec.jpg" class="d-block w-100" alt="...">
+            <img src="https://zira.uz/wp-content/uploads/2018/04/magnoliya-1.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
             <img src="https://www.southernliving.com/thmb/3x3cJaiOvQ8-3YxtMQX0vvh1hQw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2652401_QFSSL_SupremePizza_00072-d910a935ba7d448e8c7545a963ed7101.jpg" class="d-block w-100" alt="...">
@@ -20,7 +20,6 @@
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<h1 id="title">Prepared food</h1>
 
 <div id="categories_container">
     <ul>

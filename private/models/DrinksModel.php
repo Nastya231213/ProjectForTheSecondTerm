@@ -38,11 +38,35 @@ class DrinksModel extends Model
         return null;
     }
 
-    function getDrinks(){
+    function getDrinks()
+    {
         $this->query("SELECT drink.*, category.name AS category_name
         FROM drink
         JOIN category ON drink.category_id = category.id;");
 
         return $this->resultset();
+    }
+    function deleteDrink($id)
+    {
+        return $this->delete($this->tableName, ['id' => $id]);
+    }
+    function editDrink($id, $name, $description, $category_id, $composition, $volume, $price)
+    {
+        $updatedImage = $this->addImage();
+        $data['name'] = $name;
+        $data['description'] = $description;
+        $data['category_id'] = $category_id;
+        $data['composition'] = $composition;
+        $data['price'] = $price;
+        $data['volume'] = $volume;
+        if ($updatedImage != null) {
+            $data['picture'] = $updatedImage;
+        }
+
+        return $this->update(
+            $this->tableName,
+            $data,
+            ['id' => $id]
+        );
     }
 }

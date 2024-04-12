@@ -79,7 +79,7 @@ nav ul li ul.dropdown_ {
     width: 100%;
     background: #c10416;
     position: absolute;
-    z-index: 999;
+    z-index: 1;
     display: none;
 }
 
@@ -461,6 +461,8 @@ textarea {
         top: 80px;
         left: -100%;
         transition: all .5s;
+        z-index:999;
+
 
     }
 
