@@ -65,13 +65,17 @@ class Drinks extends Controller
             $this->view('admin/edit-drink', $data);
         }
     }
+    function details($index)
+    {
+        $productModel = new DrinksModel();
 
+        $product = $productModel->getDrink($index);
+        $this->view('product_information', ['product' => $product]);
+    }
     function delete($index)
     {
         $drinkModel = new DrinksModel();
         $drinkModel->deleteDrink($index);
         $this->view('admin/drinks');
- 
     }
-   
 }

@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=112333">
+  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=13233">
 </head>
 
 <body>
@@ -19,8 +19,8 @@
     <a href="#"><label class="logo">QuickCuisne</label></a>
     <ul>
 
-      <li><a href="home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
-      <li><a href="home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
+      <li><a href="<?=ROOT?>/home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
+      <li><a href="<?=ROOT?>/home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
 
       <li><a href="#">Delivery and payment <i class="fas fa-truck"></i></a></li>
       <?php if (!isLoggedIn()) : ?>
@@ -28,7 +28,7 @@
 
         <li><a href="registration">Sign up <i class="fas fa-user-plus"></i></a></li>
       <?php else : ?>
-        <li><a href="logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+        <li><a href="<?=ROOT?>/logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
 
       <?php endif; ?>
       <li><a href="#" class="shopping">Cart <i class="fas fa-cart-plus"></i></a></li>

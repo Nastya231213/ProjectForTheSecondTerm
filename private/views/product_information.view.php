@@ -22,10 +22,16 @@
 						<div align="left">
 							<p>Rating:
 							</p>
-
 							<p>
-								Ingredients: <?= $product->ingredients ?>
+								<?php if (isset($product->ingredients)) : ?>
+
+									Ingredients: <?= $product->ingredients ?>
+								<?php else : ?>
+									Composition: <?= $product->composition ?>
+
+								<?php endif; ?>
 							</p>
+
 							<p>
 								Description: <?= $product->description ?>
 							</p>

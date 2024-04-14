@@ -43,7 +43,6 @@ class DrinksModel extends Model
         $this->query("SELECT drink.*, category.name AS category_name
         FROM drink
         JOIN category ON drink.category_id = category.id;");
-
         return $this->resultset();
     }
     function deleteDrink($id)

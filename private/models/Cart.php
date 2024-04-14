@@ -2,7 +2,7 @@
 
 class Cart
 {
-    public function addDish($itemId, $itemName, $itemPicture, $quantity, $price)
+    public function addProduct($itemId, $itemName, $itemPicture, $quantity, $price)
     {
 
         if (isset($_SESSION['cart']) && isset($_SESSION['cart'][$itemId]) && is_array($_SESSION['cart'][$itemId])) {

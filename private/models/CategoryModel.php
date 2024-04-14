@@ -14,7 +14,7 @@ class CategoryModel extends Model
     function getCategory($id)
     {
 
-        return $this->selectOne($this->tableName, ['id' => $id]);
+        return $this->selectOne($this->tableName, ['id' => $id, ]);
     }
     function addImage()
     {
@@ -36,11 +36,17 @@ class CategoryModel extends Model
         }
         return null;
     }
-
-
+    function getAllCategoriesOfDishes()
+    {
+        return $this->select($this->tableName,['type'=>'dish']);
+    }
     function getAllCategories()
     {
         return $this->select($this->tableName);
+    }
+    function getAllCategoriesOfDrinks()
+    {
+        return $this->select($this->tableName,['type'=>'drinks']);
     }
     function deleteCategory($id)
     {

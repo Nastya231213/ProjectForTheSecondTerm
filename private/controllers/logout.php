@@ -7,6 +7,7 @@ class Logout extends Controller
     {
 
         unset($_SESSION['user']);
+        unset($_SESSION['cart']);
 
 
         $this->redirect('login');

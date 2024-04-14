@@ -21,89 +21,63 @@
     </button>
 </div>
 
-<div id="categories_container">
-    <ul>
-        <li><a href="#">All</a></li>
-        <?php foreach (CATEGORIES as $category) : ?>
-            <li><a href="#"><?= $category ?></a></li>
-
-        <?php endforeach ?>
-    </ul>
-
-</div>
+<h1 class="mt-3 text-center">Categories of food :</h1>
 
 <div id="container">
-    <div id="filters">
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <a href="" class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-        <h4 class="mt-5 md-3">Categories </h4>
+ 
+    <?php if (isset($allCategoriesDishes) && count($allCategoriesDishes) > 0) : ?>
 
-        <?php foreach ($allCategories as $category) : ?>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="category<?= $category->id ?>" value="<?= $category->id ?>">
-                <label class="form-check-label" for="category<?= $category->id ?>">
-                    <?= $category->name ?>
-                </label>
-            </div>
-        <?php endforeach; ?>
-        <h4 class="mt-5 md-3">Price</h4>
-        <span class="mt-2" id="priceOutput">$0 - $1000</span>
-
-        <div class="mt-4">
-            <label for="priceInput" class="form-label">Min:</label>
-            <div class="col-6">
-                <input type="number" class="form-control" id="priceInput" min="0" max="1000" step="10" value="0">
-            </div>
-            <div class="col-6">
-                <label for="priceInput1" class="form-label1">Max:</label>
-                <input type="number" class="form-control" id="priceInput1" min="0" max="1000" step="10" value="0">
-            </div>
-        </div>
-        <a href="#" id="apply_button" class="btn ">Apply</a>
-
-
-    </div>
-    <?php if (isset($allDishes) && count($allDishes) > 0) : ?>
-
-        <div id="dishes">
-            <?php foreach ($allDishes as $dish) : ?>
+        <div id="categories">
+            <?php foreach ($allCategoriesDishes as $category) : ?>
                 <form method="POST">
                     <div class="card">
 
-                        <a href="" class="image_dish ">
-                            <img src="<?= UPLOADS ?><?= $dish->picture ?>">
+                        <a href="" class="image ">
+                            <img src="<?= UPLOADS ?><?= $category->picture ?>">
                         </a>
 
-                        <div class="card_caption">
-                            <p class="rating">
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                            </p>
-                            <div class="name_dish">
-                                <p><?= $dish->name ?></p>
-                            </div>
-                            <h4>$<?= $dish->price ?></h4>
-                            <p class="discount"></p>
+                        
+                                <h1><?= $category->name ?></h1>
 
-                        </div>
-                        <input name="idDish" hidden value="<?= $dish->id ?>">
 
-                        <input type="submit" class="add_to_cart" value="Add to cart">
-                        <a href="dish/details/<?= $dish->id ?>" id="details">Details about the dish</a>
 
                     </div>
                 </form>
             <?php endforeach; ?>
         </div>
     <?php else : ?>
-        <h2>Not dishes found</h2>
+        <h2>Not categories found</h2>
+    <?php endif; ?>
+
+
+
+</div>
+<h1 class="mt-3 text-center">Categories of drinks :</h1>
+
+<div id="container">
+ 
+    <?php if (isset($allCategoriesDrinks) && count($allCategoriesDrinks) > 0) : ?>
+
+        <div id="categories">
+            <?php foreach ($allCategoriesDrinks as $category) : ?>
+                <form method="POST">
+                    <div class="card">
+
+                        <a href="" class="image ">
+                            <img src="<?= UPLOADS ?><?= $category->picture ?>">
+                        </a>
+
+                        
+                                <h1><?= $category->name ?></h1>
+
+
+
+                    </div>
+                </form>
+            <?php endforeach; ?>
+        </div>
+    <?php else : ?>
+        <h2>Not categories found</h2>
     <?php endif; ?>
 
 
