@@ -32,7 +32,7 @@
 
 </div>
 
-<div id="container">
+<div id="container" 
     <div id="filters">
         <div class="input-group rounded">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -96,10 +96,10 @@
                         <input name="id" hidden value="<?= $product->id ?>">
 
                         <input type="submit" class="add_to_cart" value="Add to cart">
-                        <?php if ($type=='dishes') : ?>
-                            <a href="<?=ROOT?>/dish/details/<?= $product->id ?>" id="details">Details about the dish</a>
+                        <?php if ($type == 'dishes') : ?>
+                            <a href="<?= ROOT ?>/dish/details/<?= $product->id ?>" id="details">Details about the dish</a>
                         <?php else : ?>
-                            <a href="<?=ROOT?>/drinks/details/<?= $product->id ?>" id="details">Details about the drink</a>
+                            <a href="<?= ROOT ?>/drinks/details/<?= $product->id ?>" id="details">Details about the drink</a>
                         <?php endif; ?>
                     </div>
                 </form>
@@ -112,6 +112,4 @@
 
 
 </div>
-</div>
-
 <?php $this->view("includes/footer") ?>

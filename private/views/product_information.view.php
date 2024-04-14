@@ -9,13 +9,14 @@
 				<a href=""><i class="fas fa-home fa-2x ml-3"></i>/</a><a href=""></a>
 
 				<div class="row p-2">
-
-					<div align="left">
+                    
+					<div align="center" class="m-3">
 						<img id="image_details" src="<?= UPLOADS . $product->picture ?>">
 					</div>
 					<div class="col  card p-4 mb-2">
-
-						<p>
+                    <h3 >Characteristics</h3>
+					<hr>
+						<p class="mt-4">
 							Name: <?= $product->name ?>
 						</p>
 
@@ -75,8 +76,13 @@
 	<div class="col-md-12 border bg-white rounded p-4">
 
 
+	<?php if(isset($product->ingredients)){
+             $addMode="add_for_drink";
+	}else{
+		$addMode="add_for_dishes";
+	} ?>
 		<div class="text-center ">
-			<a href="" class="add_reviews text-white"><i class="fas fa-comment text-white"></i>Add Review</a>
+			<a href="<?=ROOT?>/review/<?=$addMode?>/<?=$product->id?>" class="add_reviews text-white"><i class="fas fa-comment text-white"></i>Add Review</a>
 		</div><br>
 		<h2 class="text-center text-white">All the reviews to </h2>
 		<hr>

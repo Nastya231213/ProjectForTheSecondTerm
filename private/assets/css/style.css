@@ -20,6 +20,11 @@ nav {
 
 }
 
+.footer {
+    background: #c10404;
+
+}
+
 .rounded-card {
     border-radius: 10px;
 }
@@ -162,6 +167,11 @@ nav ul li:hover ul.dropdown_ {
     border-radius: 10px;
 }
 
+.details_container p {
+    font-size: 19px;
+    font-weight: 600;
+}
+
 #categories_container ul li a:hover {
     background-color: rgba(207, 15, 15, 0.4);
 
@@ -211,6 +221,7 @@ nav ul li:hover ul.dropdown_ {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
+
 #categories {
     margin: 20px auto;
     display: flex;
@@ -219,6 +230,7 @@ nav ul li:hover ul.dropdown_ {
     align-items: center;
     justify-content: left;
 }
+
 #categories .card {
     width: 500px;
     height: 520px;
@@ -233,11 +245,13 @@ nav ul li:hover ul.dropdown_ {
     align-items: center;
 
 }
+
 #categories .card:hover {
     background-color: #b8dfac;
-    color:#fff;
- }
- #dishes {
+    color: #fff;
+}
+
+#dishes {
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
@@ -263,7 +277,7 @@ nav ul li:hover ul.dropdown_ {
     height: 400px;
     width: 450px;
     margin-bottom: 20px;
-    margin:auto;
+    margin: auto;
 }
 
 #categories .card .image img {
@@ -492,7 +506,7 @@ textarea {
         top: 80px;
         left: -100%;
         transition: all .5s;
-        z-index:999;
+        z-index: 999;
 
 
     }
@@ -597,19 +611,22 @@ textarea {
 .alert_success.show {
     animation: slide 2s ease forwards;
 }
-.carousel-inner{
-    height:90vh;
+
+.carousel-inner {
+    height: 90vh;
 }
-.add_reviews{
-    width:10%;
-    height:40px;
+
+.add_reviews {
+    width: 10%;
+    height: 40px;
     background-color: #339e39;
     border: #333;
-    color:#fff;
+    color: #fff;
     padding: 15px;
-    font-size:22px;
+    font-size: 22px;
     border-radius: 5px;
 }
+
 @keyframes slide {
     0% {
         transform: translateX(100%);
@@ -676,6 +693,12 @@ textarea {
     border: 3px solid #00CC00;
 }
 
+#image_details {
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+}
+
 
 .image {
     margin: 3vh;
@@ -701,6 +724,11 @@ textarea {
     position: relative;
     left: 50%;
     transform: translate(-50%, 0);
+
+}
+
+.add_button :hover {
+    background: linear-gradient(to right, #940511, #7e0612);
 
 }
 
@@ -773,15 +801,15 @@ textarea {
 #cart li div img {
     width: 120px;
     height: 100px;
-    border-radius:5px;
+    border-radius: 5px;
     border: 1px solid #fff;
 
 }
 
-.regulate{
+.regulate {
 
     background-color: rgb(29, 27, 27);
-    color:#fff;
+    color: #fff;
     border-radius: 50%;
-    width:30px;
+    width: 30px;
 }

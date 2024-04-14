@@ -15,7 +15,7 @@ class Home extends Controller
         $categoriesDrinks = $categoryModel->getAllCategoriesOfDrinks();
 
 
-        $this->view('home', ['allCategoriesDishes' => $categoriesDishes,'allCategoriesDrinks'=>$categoriesDrinks, 'allDishes' => $dishes]) ;
+        $this->view('home', ['allCategoriesDishes' => $categoriesDishes, 'allCategoriesDrinks' => $categoriesDrinks, 'allDishes' => $dishes]);
     }
 
     function dishes()
@@ -32,7 +32,7 @@ class Home extends Controller
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
-        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $dishes,'type'=>'dishes']);
+        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $dishes, 'type' => 'dishes']);
     }
 
     function drinks()
@@ -43,12 +43,14 @@ class Home extends Controller
         $categories = $categoryModel->getAllCategoriesOfDrinks();
         if (count($_POST) > 0) {
             $cart = new Cart();
-            $drink = $drinksModel->getDrink($drinks, $_POST['id']);
+          
+            $drink = $drinksModel->getDrink( $_POST['id']);
             $quantity = 1;
+       
             $cart->addProduct($drink->id, $drink->name, $drink->picture, $quantity, $drink->price);
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
-        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $drinks,'type'=>'drinks']);
+        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $drinks, 'type' => 'drinks']);
     }
 }
