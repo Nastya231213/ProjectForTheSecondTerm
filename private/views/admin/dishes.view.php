@@ -1,7 +1,11 @@
 <?php $this->view("admin/navigation", ['title' => 'Dishes']) ?>
-<div class="container mx-auto shadow mt-5 ">
+<br><br>
+<div class="container mx-auto shadow mt-5 p-4">
+    <a href="admin" class="btn btn-dark text-color">Back <i class="fas fa-backward"></i></a>
+
     <a class="btn btn-success float-end " href="dish/add"><i class="fa fa-plus"></i> Add New</a>
     <br>
+
     <div class="card-group justify-content-center col-md-10 mt-5 mx-auto">
         <?php if (isset($allDishes) && count($allDishes) > 0) : ?>
             <h2 class="mb-5 mt-3">Dishes</h2>

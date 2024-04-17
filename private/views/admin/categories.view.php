@@ -1,5 +1,8 @@
 <?php $this->view("admin/navigation", ['title' => 'Add a new category']) ?>
-<div class="container mx-auto shadow mt-5 ">
+<br><br>
+<div class="container mx-auto shadow mt-5 p-4">
+    <a href="admin" class="btn btn-dark text-color">Back <i class="fas fa-backward"></i></a>
+
     <a class="btn btn-success float-end " href="category/add"><i class="fa fa-plus"></i> Add New</a>
     <br>
     <div class="card-group justify-content-center col-md-10 mt-5 mx-auto">
@@ -13,10 +16,7 @@
                     <th>Image</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Type</th>
-
                     <th>Actions</th>
-
                 </tr>
                 <?php foreach ($allCategories as $category) : ?>
                     <tr>

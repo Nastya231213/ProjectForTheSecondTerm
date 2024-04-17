@@ -17,6 +17,37 @@ class DishModel extends Model
 
         return $this->selectOne($this->tableName, ['id' => $id]);
     }
+
+    function getDishesBySearch($dataAboutSearch)
+    {
+        $keyWord = $dataAboutSearch['find'];
+        $categories = isset($dataAboutSearch['categories']) ? $dataAboutSearch['categories'] : array();
+        $query = "SELECT dish.*, category.name AS category_name, AVG(review.rating) AS average_rating
+                  FROM $this->tableName AS dish
+                  JOIN category ON dish.category_id = category.id
+                  LEFT JOIN review ON dish.id = review.product_id
+                  WHERE 1";
+        if (!empty($keyWord)) {
+            $query .= " AND (dish.dish_name LIKE '%$keyWord%' OR category.name LIKE '%$keyWord%')";
+        }
+
+        if (!empty($categories)) {
+            $categoriesString = implode(',', $categories);
+            $query .= " AND dish.category_id IN ($categoriesString)";
+        }
+        if (isset($dataAboutSearch['maxValue']) && isset($dataAboutSearch['minValue'])) {
+            
+            $maxValue=$dataAboutSearch['maxValue'];
+            $minValue=$dataAboutSearch['minValue'];
+
+            $query .= " AND dish.price >= $minValue AND dish.price <= $maxValue";
+
+        }
+        $query .= " GROUP BY dish.id";
+
+        $this->query($query);
+        return $this->resultset();
+    }
     function addImage()
     {
         if (count($_FILES) > 0) {

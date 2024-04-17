@@ -93,3 +93,19 @@ function getRating($rating)
     echo '<i class="bi bi-star"></i>';
   endfor;
 }
+
+function getMaxPriceForProducts($products)
+{
+  $max = 0;
+
+  if (isset($products) &&is_array($products)  && count($products) > 0) {
+    foreach ($products as $product) {
+      if ($product->price > $max) {
+        $max = $product->price;
+      }
+    }
+  }
+  return $max;
+}
+
+

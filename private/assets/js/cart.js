@@ -18,6 +18,8 @@ $(document).ready(function () {
         e.preventDefault();
 
         var dishId = $(this).data("id");
+        var listItem = $(this).closest("li");
+
         $.ajax({
             url: 'private\core\helper_functions.php',
             type: 'GET',
@@ -26,11 +28,10 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                var currentQuantity = parseInt($("#currentQuantity").text());
-                 if(currentQuantity>1){
-                    $("#currentQuantity").text(currentQuantity - 1);
-
-                 }
+                var currentQuantity =parseInt(listItem.find("#currentQuantity").text());
+                if (currentQuantity > 1) {
+                    listItem .find("#currentQuantity").text(currentQuantity - 1);
+                }
             }
         });
     });
@@ -38,6 +39,8 @@ $(document).ready(function () {
         e.preventDefault();
 
         var dishId = $(this).data("id");
+        var listItem = $(this).closest("li");
+
         $.ajax({
             url: 'private\core\helper_functions.php',
             type: 'GET',
@@ -46,8 +49,8 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                var currentQuantity = parseInt($("#currentQuantity").text());
-                $("#currentQuantity").text(currentQuantity + 1);
+                var currentQuantity =parseInt(listItem.find("#currentQuantity").text());
+                listItem .find("#currentQuantity").text(currentQuantity + 1);
             }
         });
 
@@ -71,6 +74,7 @@ $(document).ready(function () {
             }
         });
     });
+
 
 
 });

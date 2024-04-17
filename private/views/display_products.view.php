@@ -34,37 +34,38 @@
 
 <div id="container">
     <div id="filters">
-        <div class="input-group rounded">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <a href="" class="input-group-text border-0" id="search-addon">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-        <h4 class="mt-5 md-3 ">Categories </h4>
-
-        <?php foreach ($allCategories as $category) : ?>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="category<?= $category->id ?>" value="<?= $category->id ?>">
-                <label class="form-check-label" for="category<?= $category->id ?>">
-                    <?= $category->name ?>
-                </label>
+        <form method="GET">
+            <div class="input-group rounded">
+                <input type="search" name="find" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <a href="" class="input-group-text border-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </a>
             </div>
-        <?php endforeach; ?>
-        <h4 class="mt-5 md-3">Price</h4>
-        <span class="mt-2" id="priceOutput">$0 - $1000</span>
+            <h4 class="mt-5 md-3 ">Categories </h4>
 
-        <div class="mt-4">
-            <label for="priceInput" class="form-label">Min:</label>
-            <div class="col-6">
-                <input type="number" class="form-control" id="priceInput" min="0" max="1000" step="10" value="0">
-            </div>
-            <div class="col-6">
-                <label for="priceInput1" class="form-label1">Max:</label>
-                <input type="number" class="form-control" id="priceInput1" min="0" max="1000" step="10" value="0">
-            </div>
-        </div>
-        <a href="#" id="apply_button" class="btn ">Apply</a>
+            <?php foreach ($allCategories as $category) : ?>
+                <div class="form-check">
+                    <input class="form-check-input" name="categories[]" type="checkbox" id="category<?= $category->id ?>" value="<?= $category->id ?>">
+                    <label class="form-check-label" for="category<?= $category->id ?>">
+                        <?= $category->name ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+            <h4 class="mt-5 md-3">Price</h4>
+            <span class="mt-2" id="priceOutput">$0 - $1000</span>
 
+            <div class="mt-4">
+                <label for="priceInput" class="form-label">Min:</label>
+                <div class="col-6">
+                    <input type="number" name="minValue" class="form-control" id="priceInput" min="0" max="<?=$maxPriceForProduct?>"  value="0">
+                </div>
+                <div class="col-6">
+                    <label for="priceInput1" class="form-label1">Max:</label>
+                    <input name="maxValue" type="number" class="form-control" id="priceInput1" min="0"   value="<?=$maxPriceForProduct?>">
+                </div>
+            </div>
+            <input id="apply_button" class="btn" value="Apply" type="submit">
+        </form>
 
     </div>
     <?php if (isset($allProducts) && count($allProducts) > 0) : ?>

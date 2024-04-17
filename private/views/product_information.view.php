@@ -21,7 +21,7 @@
 						</p>
 
 						<div align="left">
-							<p>Rating: <?=getRating($product->average_rating);?>
+							<p>Rating: <?= getRating($product->average_rating); ?>
 							</p>
 							<p>
 								<?php if (isset($product->ingredients)) : ?>
@@ -94,7 +94,7 @@
 					<div class="d-flex ">
 						<h4 class="me-5"><?= $review->user_name ?></h4>
 						<p class="rating mt-1">
-							<?=getRating($review->rating)?>
+							<?= getRating($review->rating) ?>
 						</p>
 					</div>
 					<p><?= $review->comment ?></p>

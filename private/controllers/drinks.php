@@ -70,10 +70,11 @@ class Drinks extends Controller
         $productModel = new DrinksModel();
         $reviewModel = new ReviewModel();
 
-        $reviews=$reviewModel->getReviewsOfProduct($index);
+        $reviews = $reviewModel->getReviewsOfProduct($index);
         $product = $productModel->getDrink($index);
-        $this->view('product_information', ['product' => $product,'reviews'=>$reviews]);
+        $this->view('product_information', ['product' => $product, 'reviews' => $reviews]);
     }
+    
     function delete($index)
     {
         $drinkModel = new DrinksModel();
