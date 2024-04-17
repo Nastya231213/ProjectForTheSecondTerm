@@ -22,7 +22,7 @@
 
             <li><a href="#">Analytics</a></li>
 
-            <li><a href="logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+            <li><a href="<?=ROOT?>/logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
 
             <div class="search">
                 <form>

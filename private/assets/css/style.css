@@ -17,17 +17,17 @@ nav {
 
     z-index: 1000;
     height: 88px;
-    position:fixed;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
 
 }
 
 .footer {
     background: #c10404;
-    position:fixed;
-    width:100%;
-    bottom:0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
     z-index: 999;
 }
 
@@ -125,8 +125,8 @@ nav ul li a:hover {
     height: 10vh;
     border-radius: 10px;
     display: flex;
-    width:80vw;
-    margin:auto;
+    width: 80vw;
+    margin: auto;
     margin-top: 5vh;
     align-items: center;
     justify-content: center;
@@ -240,7 +240,10 @@ nav ul li a:hover {
     background-color: #52bb28af;
     color: #fff;
 }
-.bi-star-fill,.bi-star-half,.bi-star{
+
+.bi-star-fill,
+.bi-star-half,
+.bi-star {
     color: #fdcf29;
 }
 
@@ -595,9 +598,9 @@ textarea {
     display: flex;
 
 }
-#review{
-    
-}
+
+#review {}
+
 #actions_buttons a {
     margin: 5px;
 }
@@ -610,7 +613,8 @@ textarea {
 .carousel-inner {
     height: 90vh;
 }
-.emtpy_star{
+
+.emtpy_star {
     background-color: rgb(219, 219, 219);
 }
 

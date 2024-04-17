@@ -26,8 +26,11 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                $("#body").html(response);
-                bindEvents();
+                var currentQuantity = parseInt($("#currentQuantity").text());
+                 if(currentQuantity>1){
+                    $("#currentQuantity").text(currentQuantity - 1);
+
+                 }
             }
         });
     });
@@ -43,29 +46,31 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                $("#body").html(response);
-                bindEvents();
+                var currentQuantity = parseInt($("#currentQuantity").text());
+                $("#currentQuantity").text(currentQuantity + 1);
+            }
+        });
 
+    });
+
+    $(".delete").click(function (e) {
+        e.preventDefault();
+
+        var dishId = $(this).data("id");
+        var listItem = $(this).closest("li");
+        $.ajax({
+            url: 'private\core\helper_functions.php',
+            type: 'GET',
+            data: {
+                functionname: 'deleteProduct',
+                id: dishId
+            },
+            success: function (response) {
+                listItem.remove();
+                bindEvents();
             }
         });
     });
 
-    $(".delete").click(function(e) {
-        e.preventDefault();
-  
-        var dishId = $(this).data("id");
-        $.ajax({
-          url: 'private\core\helper_functions.php',
-          type: 'GET',
-          data: {
-            functionname: 'deleteProduct',
-            id: dishId
-          },
-          success: function(response) {
-            $("#body").html(response);
-            bindEvents();
-  
-          }
-        });
-      });
+
 });

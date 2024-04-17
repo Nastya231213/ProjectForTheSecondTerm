@@ -27,9 +27,7 @@
 
                         <td>
                             <div id="actions_buttons">
-                                <a href="review/edit/<?= $review->id ?>" class="btn btn-sm btn-success">
-                                    <i class="fa fa-edit"></i>
-                                </a>
+                           
                                 <a id="deleteButton" href="review/delete/<?= $review->id ?>" class="btn btn-sm btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>

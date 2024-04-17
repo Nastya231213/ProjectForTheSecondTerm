@@ -15,7 +15,7 @@
     </ul>
   </footer>
 
-<script src="<?= ASSETS ?>/js/cart.js?version=123"></script>
+<script src="<?= ASSETS ?>/js/cart.js?version=1"></script>
 
 </body>
 </html>

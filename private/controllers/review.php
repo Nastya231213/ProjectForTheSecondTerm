@@ -3,7 +3,8 @@
 class Review extends Controller
 {
 
-    function index(){
+    function index()
+    {
         if (!isAdmin()) {
             $this->redirect('home');
         } else {
@@ -15,17 +16,18 @@ class Review extends Controller
         }
     }
     function add_for_drink($index)
-    { 
-    
+    {
+
         $this->add($index, 'drinks');
     }
     function add_for_dishes($index)
-    { 
-    
+    {
+
         $this->add($index, 'dish');
     }
-    
-    private function add($index, $type){
+
+    private function add($index, $type)
+    {
         if (!isLoggedIn()) {
 
             $this->redirect('login');
@@ -35,12 +37,18 @@ class Review extends Controller
                 $data['comment'] = $_POST['comment'];
 
                 $data['user_id'] = $_SESSION['user']->id;
-                $data['product_id']=$index;
+                $data['product_id'] = $index;
                 $processor = new ReviewProcessor();
                 $processor->processReview($data);
-                $this->redirect($type.'/details/'.$index);
+                $this->redirect($type . '/details/' . $index);
             }
             $this->view('add-review');
         }
+    }
+    function delete($index)
+    {
+        $reviewModel = new ReviewModel();
+        $reviewModel->deleteReview($index);
+        $this->view('admin/reviews');
     }
 }

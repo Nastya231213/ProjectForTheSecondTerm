@@ -15,26 +15,26 @@
   <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=1323">
 </head>
 
-<body id="body">
+<body>
   <nav>
     <input type="checkbox" id="check">
     <label for="check" class="check_button"><i class="fas fa-bars"></i></label>
     <a href="#"><label class="logo">QuickCuisne</label></a>
     <ul>
 
-      <li><a href="<?=ROOT?>/home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
-      <li><a href="<?=ROOT?>/home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
+      <li><a href="<?= ROOT ?>/home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
+      <li><a href="<?= ROOT ?>/home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
 
       <li><a href="#">Delivery and payment <i class="fas fa-truck"></i></a></li>
       <?php if (!isLoggedIn()) : ?>
-        <li><a href="login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+        <li><a href="<?= ROOT ?>/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
 
-        <li><a href="registration">Sign up <i class="fas fa-user-plus"></i></a></li>
+        <li><a href="<?= ROOT ?>/registration">Sign up <i class="fas fa-user-plus"></i></a></li>
       <?php else : ?>
-        <li><a href="<?=ROOT?>/logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+        <li><a href="<?= ROOT ?>/logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
 
       <?php endif; ?>
-      <li><a href="#" class="shopping">Cart <i class="fas fa-cart-plus"></i></a></li>
+      <li><a href="#" class="shopping" onclick="event.preventDefault();">Cart <i class="fas fa-cart-plus"></i></a></li>
 
       <div class="search">
         <form>
@@ -46,44 +46,42 @@
 
     </ul>
 
-
-
   </nav>
-  <div class="container_cart" id="cart">
+  <div class="container_cart">
     <div id="cart">
       <h1>Your cart</h1>
 
-      
-        <?php $total = 0; ?>
 
-        <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
-          <ul>
+      <?php $total = 0; ?>
 
-            <?php foreach ($_SESSION['cart'] as $product) : ?>
-              <li>
+      <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
+        <ul>
 
-                <div><img src="<?= UPLOADS . $product['pictureName'] ?>"> </div>
-                <div><?= $product['price'] ?> $</div>
-                <div><?= $product['quantity'] ?></div>
-                <?php $total += $product['quantity'] * $product['price'] ?>
-                <div><a data-id="<?= $product['id'] ?>" href="#" class="delete"><i class="fas fa-trash text-white "></i></a></div>
+          <?php foreach ($_SESSION['cart'] as $product) : ?>
+            <li>
 
-                <div><button class="regulate minus" data-id="<?= $product['id'] ?>">-</button>
-                  <button class="regulate plus" data-id="<?= $product['id'] ?>">+</button>
-                </div>
-              </li>
+              <div><img src="<?= UPLOADS . $product['pictureName'] ?>"> </div>
+              <div><?= $product['price'] ?> $</div>
+              <div id="currentQuantity"><?= $product['quantity'] ?></div>
+              <?php $total += $product['quantity'] * $product['price'] ?>
+              <div><a data-id="<?= $product['id'] ?>" href="#" class="delete"><i class="fas fa-trash text-white "></i></a></div>
 
-            <?php endforeach; ?>
+              <div><button class="regulate minus" data-id="<?= $product['id'] ?>">-</button>
+                <button class="regulate plus" data-id="<?= $product['id'] ?>">+</button>
+              </div>
+            </li>
 
-          </ul>
+          <?php endforeach; ?>
 
-        <?php else : ?>
-          <h2 class="text-white ">No products in your cart</h2>
-        <?php endif; ?>
-        <div class="checkout">
-          <div class="total"><?= $total ?> $</div>
-          <div class="closeCart">Close</div>
-        </div>
+        </ul>
+
+      <?php else : ?>
+        <h2 class="text-white ">No products in your cart</h2>
+      <?php endif; ?>
+      <div class="checkout">
+        <div class="total"><?= $total ?> $</div>
+        <div class="closeCart">Close</div>
+      </div>
 
       </li>
     </div>
