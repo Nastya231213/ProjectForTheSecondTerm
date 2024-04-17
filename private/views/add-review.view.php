@@ -1,4 +1,4 @@
-<?php $this->view("admin/navigation",['title'=>'Add review']) ?>
+<?php $this->view("admin/navigation", ['title' => 'Add review']) ?>
 <div class="container  shadow mt-5 col-md-4 p-5 mb-5 ">
     <a href="<?= isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : '#' ?>" class="btn btn-dark text-color">Back <i class="fas fa-backward"></i></a>
 

@@ -15,14 +15,20 @@ nav {
     background: #c10404;
     width: 100%;
 
-    z-index: 99;
+    z-index: 1000;
     height: 88px;
+    position:fixed;
+    top:0;
+    left:0;
 
 }
 
 .footer {
     background: #c10404;
-
+    position:fixed;
+    width:100%;
+    bottom:0;
+    z-index: 999;
 }
 
 .rounded-card {
@@ -75,26 +81,7 @@ nav ul li a:hover {
 
 }
 
-nav ul li ul.dropdown_ li {
-    display: block;
-}
 
-nav ul li ul.dropdown_ {
-    width: 100%;
-    background: #c10416;
-    position: absolute;
-    z-index: 1;
-    display: none;
-}
-
-nav ul li ul.dropdown_ li a {
-    font-size: 14px;
-}
-
-nav ul li:hover ul.dropdown_ {
-    display: block;
-
-}
 
 .search {
     display: inline-block;
@@ -138,6 +125,9 @@ nav ul li:hover ul.dropdown_ {
     height: 10vh;
     border-radius: 10px;
     display: flex;
+    width:80vw;
+    margin:auto;
+    margin-top: 5vh;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -247,8 +237,11 @@ nav ul li:hover ul.dropdown_ {
 }
 
 #categories .card:hover {
-    background-color: #b8dfac;
+    background-color: #52bb28af;
     color: #fff;
+}
+.bi-star-fill,.bi-star-half,.bi-star{
+    color: #fdcf29;
 }
 
 #dishes {
@@ -360,7 +353,7 @@ nav ul li:hover ul.dropdown_ {
     background: #fff;
     text-align: center;
     padding: 30px;
-    margin: 5% auto 0;
+    margin: 7% auto 0;
     border-radius: 10px;
 
 }
@@ -602,7 +595,9 @@ textarea {
     display: flex;
 
 }
-
+#review{
+    
+}
 #actions_buttons a {
     margin: 5px;
 }
@@ -614,6 +609,9 @@ textarea {
 
 .carousel-inner {
     height: 90vh;
+}
+.emtpy_star{
+    background-color: rgb(219, 219, 219);
 }
 
 .add_reviews {
@@ -739,7 +737,7 @@ textarea {
 }
 
 #cart h1 {
-    color: #a30c1b;
+    color: #3ba312;
     font-weight: bold;
     margin: 0;
     padding: 0 20px;
@@ -749,7 +747,7 @@ textarea {
 #cart {
     position: fixed;
     height: 100vh;
-    z-index: 500;
+    z-index: 1000;
     top: 0;
     right: -500px;
     width: 500px;
@@ -757,7 +755,7 @@ textarea {
 }
 
 #cart .checkout div {
-    background-color: #a30c1b;
+    background-color: #3ba312;
     height: 60px;
     display: flex;
     width: 100%;

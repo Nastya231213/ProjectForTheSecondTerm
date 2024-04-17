@@ -43,7 +43,7 @@ class Home extends Controller
         $categories = $categoryModel->getAllCategoriesOfDrinks();
         if (count($_POST) > 0) {
             $cart = new Cart();
-          
+            
             $drink = $drinksModel->getDrink( $_POST['id']);
             $quantity = 1;
        

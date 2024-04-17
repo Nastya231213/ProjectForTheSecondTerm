@@ -3,10 +3,6 @@
 class Review extends Controller
 {
 
-    function index()
-    {
-    }
-
     function add_for_drink($index)
     { 
     
@@ -15,7 +11,7 @@ class Review extends Controller
     function add_for_dishes($index)
     { 
     
-        $this->add($index, 'drinks');
+        $this->add($index, 'dish');
     }
     
     private function add($index, $type){

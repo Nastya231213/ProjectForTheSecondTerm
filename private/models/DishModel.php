@@ -41,18 +41,23 @@ class DishModel extends Model
 
     function getAllDishes()
     {
-        $this->query("SELECT dish.*, category.name AS category_name
+        $this->query("
+        SELECT dish.*, category.name AS category_name, AVG(review.rating) AS average_rating
         FROM dish
-        JOIN category ON dish.category_id = category.id;");
+        JOIN category ON dish.category_id = category.id
+        LEFT JOIN review ON dish.id = review.product_id
+        GROUP BY dish.id;
+    ");
+
 
         return $this->resultset();
     }
     function findDish($dishes, $dishId)
     {
         foreach ($dishes as $dish) {
-            if($dish->id==$dishId){
+            if ($dish->id == $dishId) {
                 return $dish;
-            }  
+            }
         }
         return null;
     }
@@ -77,7 +82,27 @@ class DishModel extends Model
         );
     }
 
-    function getProduct($id){
-        return $this->selectOne($this->tableName,['id'=>$id]);
+    function getProduct($id)
+    {
+        $this->query("
+        SELECT 
+            dish.*, 
+            category.name AS category_name, 
+            AVG(review.rating) AS average_rating
+        FROM 
+            dish
+        JOIN 
+            category ON dish.category_id = category.id
+        LEFT JOIN 
+            review ON dish.id = review.product_id
+        WHERE 
+            dish.id = $id
+        GROUP BY 
+            dish.id ;
+    ");
+
+
+
+        return $this->single();
     }
 }

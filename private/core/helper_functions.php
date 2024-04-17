@@ -21,10 +21,11 @@ function isAdmin()
     return false;
   }
 }
-function isLoggedIn(){
-  if(isset($_SESSION['user'])){
+function isLoggedIn()
+{
+  if (isset($_SESSION['user'])) {
     return true;
-  }else{
+  } else {
     return false;
   }
 }
@@ -74,4 +75,21 @@ function deleteProduct()
       unset($_SESSION['cart'][$dishId]);
     }
   }
+}
+function getRating($rating)
+{
+  $fullStars = floor($rating);
+  $halfStar = ($rating - $fullStars) >= 0.5 ? 1 : 0;
+  $emptyStars = 5 - $fullStars - $halfStar;
+  for ($i = 0; $i < $fullStars; $i++) :
+    echo '<i class="bi bi-star-fill"></i>';
+
+  endfor;
+  if ($halfStar) :
+
+    echo '<i class="bi bi-star-half"></i>';
+  endif;
+  for ($i = 0; $i < $emptyStars; $i++) :
+    echo '<i class="bi bi-star"></i>';
+  endfor;
 }

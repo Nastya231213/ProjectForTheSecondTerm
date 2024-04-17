@@ -40,9 +40,11 @@ class DrinksModel extends Model
 
     function getDrinks()
     {
-        $this->query("SELECT drink.*, category.name AS category_name
+        $this->query("   SELECT drink.*, category.name AS category_name, AVG(review.rating) AS average_rating
         FROM drink
-        JOIN category ON drink.category_id = category.id;");
+        JOIN category ON drink.category_id = category.id
+        LEFT JOIN review ON drink.id = review.product_id
+        GROUP BY drink.id;");
         return $this->resultset();
     }
     function deleteDrink($id)

@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=1322233">
+  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=1323">
 </head>
 
-<body>
+<body id="body">
   <nav>
     <input type="checkbox" id="check">
     <label for="check" class="check_button"><i class="fas fa-bars"></i></label>
@@ -46,11 +49,11 @@
 
 
   </nav>
-  <div class="container_cart">
+  <div class="container_cart" id="cart">
     <div id="cart">
       <h1>Your cart</h1>
 
-      <div>
+      
         <?php $total = 0; ?>
 
         <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) : ?>
@@ -81,7 +84,6 @@
           <div class="total"><?= $total ?> $</div>
           <div class="closeCart">Close</div>
         </div>
-      </div>
 
       </li>
     </div>
@@ -99,7 +101,7 @@
           id: dishId
         },
         success: function(response) {
-          $("#cart").html(response);
+          $("#body").html(response);
           bindEvents();
 
         }

@@ -1,6 +1,6 @@
 <?php $this->view("includes/navigation", ["title" => "Login"]) ?>
 
-<div class="form_for_login">
+<div class="form_for_login ">
     <img src="<?= ASSETS ?>/images/icons8-sign-in-100.png">
     <h1>Sign In</h1>
     <form method="POST">

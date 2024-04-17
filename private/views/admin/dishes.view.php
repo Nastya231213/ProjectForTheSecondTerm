@@ -23,6 +23,7 @@
                         <td><?= $dish->category_name ?></td>
                         <td><?= $dish->description ?></td>
                         <td><?= $dish->ingredients ?></td>
+
                         <td>
                             <div id="actions_buttons">
                                 <a href="dish/edit/<?= $dish->id ?>" class="btn btn-sm btn-success">

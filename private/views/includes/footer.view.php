@@ -1,3 +1,4 @@
+  <br><br>
   <footer class="d-flex flex-wrap justify-content-between footer align-items-center py-3 p-5  border-top">
     <h5 class="col-md-4 mb-0 text-white">&copy; 2024 QuickCuisine</h5>
 
@@ -14,7 +15,7 @@
     </ul>
   </footer>
 
-<script src="<?= ASSETS ?>/js/cart.js"></script>
+<script src="<?= ASSETS ?>/js/cart.js?version=123"></script>
 
 </body>
 </html>

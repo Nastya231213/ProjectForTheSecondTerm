@@ -32,7 +32,7 @@
 
 </div>
 
-<div id="container" 
+<div id="container">
     <div id="filters">
         <div class="input-group rounded">
             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
@@ -40,7 +40,7 @@
                 <i class="fas fa-search"></i>
             </a>
         </div>
-        <h4 class="mt-5 md-3">Categories </h4>
+        <h4 class="mt-5 md-3 ">Categories </h4>
 
         <?php foreach ($allCategories as $category) : ?>
             <div class="form-check">
@@ -78,13 +78,10 @@
                             <img src="<?= UPLOADS ?><?= $product->picture ?>">
                         </a>
 
-                        <div class="card_caption mt-3">
+                        <div class="card_caption mt-1">
                             <p class="rating">
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
-                                <i class="fas fa-star" style="color: #FFD43B;"></i>
+                            <h4><?= getRating($product->average_rating) ?></h4>
+
                             </p>
                             <div class="name_dish">
                                 <p><?= $product->name ?></p>

@@ -26,7 +26,7 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                $("#cart").html(response);
+                $("#body").html(response);
                 bindEvents();
             }
         });
@@ -43,12 +43,29 @@ $(document).ready(function () {
                 id: dishId
             },
             success: function (response) {
-                $("#cart").html(response);
+                $("#body").html(response);
                 bindEvents();
 
             }
         });
     });
 
+    $(".delete").click(function(e) {
+        e.preventDefault();
   
+        var dishId = $(this).data("id");
+        $.ajax({
+          url: 'private\core\helper_functions.php',
+          type: 'GET',
+          data: {
+            functionname: 'deleteProduct',
+            id: dishId
+          },
+          success: function(response) {
+            $("#body").html(response);
+            bindEvents();
+  
+          }
+        });
+      });
 });
