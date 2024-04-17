@@ -3,6 +3,17 @@
 class Review extends Controller
 {
 
+    function index(){
+        if (!isAdmin()) {
+            $this->redirect('home');
+        } else {
+            $data = array();
+            $data = addMessage($data);
+            $reviewsModel = new ReviewModel();
+            $data['allReviews'] = $reviewsModel->getAllReviews();
+            $this->view('admin/reviews', $data);
+        }
+    }
     function add_for_drink($index)
     { 
     

@@ -37,11 +37,11 @@
             </a>
         </div>
         <div class="col-md-3">
-            <a href="">
+            <a href="review">
                 <div class="card rounded-card shadow">
                     <div class="card-body">
-                        <i class="fas  fa-percent fa-4x"></i><br>
-                        <h4>Discounts</h4>
+                        <i class="fas fa-share fa-4x"></i><br>
+                        <h4>Reviews</h4>
                     </div>
 
                 </div>

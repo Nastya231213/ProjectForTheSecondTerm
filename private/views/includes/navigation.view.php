@@ -88,23 +88,3 @@
       </li>
     </div>
   </div>
-  <script>
-    $(".delete").click(function(e) {
-      e.preventDefault();
-
-      var dishId = $(this).data("id");
-      $.ajax({
-        url: 'private\core\helper_functions.php',
-        type: 'GET',
-        data: {
-          functionname: 'deleteProduct',
-          id: dishId
-        },
-        success: function(response) {
-          $("#body").html(response);
-          bindEvents();
-
-        }
-      });
-    });
-  </script>
