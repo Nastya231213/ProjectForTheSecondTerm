@@ -12,7 +12,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=1323">
+  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=13323">
 </head>
 
 <body>

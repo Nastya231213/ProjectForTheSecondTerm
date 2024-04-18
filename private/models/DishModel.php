@@ -2,6 +2,7 @@
 
 class DishModel extends Model
 {
+
     private $tableName = "dish";
     function addDish($name, $description, $ingredients, $cat_id, $price)
     {
@@ -28,7 +29,7 @@ class DishModel extends Model
                   LEFT JOIN review ON dish.id = review.product_id
                   WHERE 1";
         if (!empty($keyWord)) {
-            $query .= " AND (dish.dish_name LIKE '%$keyWord%' OR category.name LIKE '%$keyWord%')";
+            $query .= " AND (dish.name LIKE '%$keyWord%' OR category.name LIKE '%$keyWord%')";
         }
 
         if (!empty($categories)) {
@@ -36,12 +37,11 @@ class DishModel extends Model
             $query .= " AND dish.category_id IN ($categoriesString)";
         }
         if (isset($dataAboutSearch['maxValue']) && isset($dataAboutSearch['minValue'])) {
-            
-            $maxValue=$dataAboutSearch['maxValue'];
-            $minValue=$dataAboutSearch['minValue'];
+
+            $maxValue = $dataAboutSearch['maxValue'];
+            $minValue = $dataAboutSearch['minValue'];
 
             $query .= " AND dish.price >= $minValue AND dish.price <= $maxValue";
-
         }
         $query .= " GROUP BY dish.id";
 
@@ -112,7 +112,6 @@ class DishModel extends Model
             ['id' => $id]
         );
     }
-
     function getProduct($id)
     {
         $this->query("

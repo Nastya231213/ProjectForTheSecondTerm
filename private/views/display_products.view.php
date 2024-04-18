@@ -107,7 +107,5 @@
         <h2>Not dishes found</h2>
     <?php endif; ?>
 
-
-
 </div>
 <?php $this->view("includes/footer") ?>

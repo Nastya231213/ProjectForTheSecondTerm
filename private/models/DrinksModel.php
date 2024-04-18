@@ -51,6 +51,7 @@ class DrinksModel extends Model
     {
         return $this->delete($this->tableName, ['id' => $id]);
     }
+    
     function editDrink($id, $name, $description, $category_id, $composition, $volume, $price)
     {
         $updatedImage = $this->addImage();
@@ -69,5 +70,34 @@ class DrinksModel extends Model
             $data,
             ['id' => $id]
         );
+    }
+    function getDrinksBySearch($dataAboutSearch)
+    {
+        $keyWord = $dataAboutSearch['find'];
+        $categories = isset($dataAboutSearch['categories']) ? $dataAboutSearch['categories'] : array();
+        $query = "SELECT drink.*, category.name AS category_name, AVG(review.rating) AS average_rating
+        FROM drink
+        JOIN category ON drink.category_id = category.id
+        LEFT JOIN review ON drink.id = review.product_id
+                  WHERE 1";
+        if (!empty($keyWord)) {
+            $query .= " AND (drink.name LIKE '%$keyWord%' OR category.name LIKE '%$keyWord%')";
+        }
+
+        if (!empty($categories)) {
+            $categoriesString = implode(',', $categories);
+            $query .= " AND drink.category_id IN ($categoriesString)";
+        }
+        if (isset($dataAboutSearch['maxValue']) && isset($dataAboutSearch['minValue'])) {
+
+            $maxValue = $dataAboutSearch['maxValue'];
+            $minValue = $dataAboutSearch['minValue'];
+
+            $query .= " AND drink.price >= $minValue AND drink.price <= $maxValue";
+        }
+        $query .= " GROUP BY drink.id;";
+
+        $this->query($query);
+        return $this->resultset();
     }
 }

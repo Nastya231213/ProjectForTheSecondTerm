@@ -44,7 +44,12 @@ class Home extends Controller
     {
         $categoryModel = new CategoryModel();
         $drinksModel = new DrinksModel();
-        $drinks = $drinksModel->getDrinks();
+        if (isset($_GET) && count($_GET) > 1) {
+            $drinks = $drinksModel-> getDrinksBySearch($_GET);
+     
+        } else {
+            $drinks = $drinksModel->getDrinks();
+        }
         $categories = $categoryModel->getAllCategoriesOfDrinks();
         if (count($_POST) > 0) {
             $cart = new Cart();
@@ -56,6 +61,6 @@ class Home extends Controller
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
-        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $drinks, 'type' => 'drinks']);
+        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $drinks, 'type' => 'drinks','maxPriceForProduct' => getMaxPriceForProducts($drinks)]);
     }
 }
