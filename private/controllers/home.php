@@ -33,7 +33,7 @@ class Home extends Controller
             $cart = new Cart();
             $dish = $dishModel->findDish($dishes, $_POST['id']);
             $quantity = 1;
-            $cart->addProduct($dish->id, $dish->name, $dish->picture, $quantity, $dish->price);
+            $cart->addProduct($dish->id, $dish->name, $dish->picture, $quantity, $dish->price,"dish");
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
@@ -57,10 +57,11 @@ class Home extends Controller
             $drink = $drinksModel->getDrink($_POST['id']);
             $quantity = 1;
 
-            $cart->addProduct($drink->id, $drink->name, $drink->picture, $quantity, $drink->price);
+            $cart->addProduct($drink->id, $drink->name, $drink->picture, $quantity, $drink->price,"drinks");
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
-        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $drinks, 'type' => 'drinks','maxPriceForProduct' => getMaxPriceForProducts($drinks)]);
+        $this->view('display_products', ['allCategories' => $categories, 
+        'allProducts' => $drinks, 'type' => 'drinks','maxPriceForProduct' => getMaxPriceForProducts($drinks)]);
     }
 }

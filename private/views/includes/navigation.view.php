@@ -12,7 +12,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?verision=13323">
+  <link rel="stylesheet" href="<?= ASSETS ?>/css/style.css?version=13323">
 </head>
 
 <body>
@@ -49,6 +49,11 @@
   </nav>
   <div class="container_cart">
     <div id="cart">
+      <a href="<?=ROOT?>/order">
+        <div class="checkout-button">
+          <div> Checkout</div>
+        </div>
+      </a>
       <h1>Your cart</h1>
 
 
@@ -76,7 +81,7 @@
         </ul>
 
       <?php else : ?>
-        <h2 class="text-white ">No products in your cart</h2>
+        <h2 class="text-white mt-2 text-center ">No products in your cart</h2>
       <?php endif; ?>
       <div class="checkout">
         <div class="total"><?= $total ?> $</div>

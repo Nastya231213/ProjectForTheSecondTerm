@@ -2,7 +2,7 @@
 
 class Cart
 {
-    public function addProduct($itemId, $itemName, $itemPicture, $quantity, $price)
+    public function addProduct($itemId, $itemName, $itemPicture, $quantity, $price,$type)
     {
 
         if (isset($_SESSION['cart']) && isset($_SESSION['cart'][$itemId]) && is_array($_SESSION['cart'][$itemId])) {
@@ -14,7 +14,8 @@ class Cart
                 'name' => htmlspecialchars($itemName), 
                 'quantity' => (int)$quantity, 
                 'price' => (float)$price, 
-                'pictureName' => htmlspecialchars($itemPicture) 
+                'pictureName' => htmlspecialchars($itemPicture),
+                'type'=>$type
             );
         }
     }
