@@ -25,7 +25,7 @@
       <li><a href="<?= ROOT ?>/home/dishes">Dishes <i class="fas fa-utensils"></i></a></li>
       <li><a href="<?= ROOT ?>/home/drinks">Drinks <i class="fas fa-mug-hot"></i></a></li>
 
-      <li><a href="#">Delivery and payment <i class="fas fa-truck"></i></a></li>
+      <li><a href="<?=ROOT?>/order/display_your_orders">Delivery and payment <i class="fas fa-truck"></i></a></li>
       <?php if (!isLoggedIn()) : ?>
         <li><a href="<?= ROOT ?>/login">Login <i class="fas fa-sign-in-alt"></i></a></li>
 

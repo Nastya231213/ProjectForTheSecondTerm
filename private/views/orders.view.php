@@ -37,14 +37,13 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <?php if ($order->form_payment != "Pay online" && !$order->status) : ?>
+                            <?php if (($order->form_payment != "Pay online" && !$order->status) || $order->status) : ?>
                                 <p><?= $order->form_payment ?></p>
-                            <?php elseif ($order->status) : ?>
-                                <p>Paid</p>
                             <?php else : ?>
-                                <a href="dish/edit/<?= $order->id ?>" class="btn btn-sm btn-success">
-                                    Pay online <i class="fas fa-money-check"></i>
-                                </a>
+                                <?php $paymentProccessor=new PaymentProcessor(PUBLIC_KEY,PRIVATE_KEY);
+                                    $cart=new Cart();
+                                    $paymentProccessor->processPayment($order->id,$cart->getTotalPrice());
+                                ?>
                             <?php endif; ?>
                         </td>
                         <td>

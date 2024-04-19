@@ -26,9 +26,12 @@ class Cart
     public function getTotalPrice()
     {
         $totalPrice = 0;
-        foreach ($_SESSION['cart'] as $item) {
-            $totalPrice += $item['quantity'] * $item['price'];
+        if(isset($_SESSION['cart'])){
+            foreach ($_SESSION['cart'] as $item) {
+                $totalPrice += $item['quantity'] * $item['price'];
+            }
         }
+      
         return $totalPrice;
     }
 
