@@ -37,14 +37,16 @@ class DrinksModel extends Model
         }
         return null;
     }
-
-    function getDrinks()
+    function getDrinks($limit, $offset)
     {
-        $this->query("   SELECT drink.*, category.name AS category_name, AVG(review.rating) AS average_rating
-        FROM drink
-        JOIN category ON drink.category_id = category.id
-        LEFT JOIN review ON drink.id = review.product_id
-        GROUP BY drink.id;");
+        $query = "SELECT drink.*, category.name AS category_name, AVG(review.rating) AS average_rating
+                  FROM drink
+                  JOIN category ON drink.category_id = category.id
+                  LEFT JOIN review ON drink.id = review.product_id
+                  GROUP BY drink.id
+                  LIMIT $limit OFFSET $offset";
+    
+        $this->query($query);
         return $this->resultset();
     }
     function deleteDrink($id)
@@ -71,32 +73,34 @@ class DrinksModel extends Model
             ['id' => $id]
         );
     }
-    function getDrinksBySearch($dataAboutSearch)
+    function getDrinksBySearch($dataAboutSearch, $limit, $offset)
     {
         $keyWord = $dataAboutSearch['find'];
         $categories = isset($dataAboutSearch['categories']) ? $dataAboutSearch['categories'] : array();
         $query = "SELECT drink.*, category.name AS category_name, AVG(review.rating) AS average_rating
-        FROM drink
-        JOIN category ON drink.category_id = category.id
-        LEFT JOIN review ON drink.id = review.product_id
+                  FROM drink
+                  JOIN category ON drink.category_id = category.id
+                  LEFT JOIN review ON drink.id = review.product_id
                   WHERE 1";
         if (!empty($keyWord)) {
             $query .= " AND (drink.name LIKE '%$keyWord%' OR category.name LIKE '%$keyWord%')";
         }
-
+    
         if (!empty($categories)) {
             $categoriesString = implode(',', $categories);
             $query .= " AND drink.category_id IN ($categoriesString)";
         }
         if (isset($dataAboutSearch['maxValue']) && isset($dataAboutSearch['minValue'])) {
-
+    
             $maxValue = $dataAboutSearch['maxValue'];
             $minValue = $dataAboutSearch['minValue'];
-
+    
             $query .= " AND drink.price >= $minValue AND drink.price <= $maxValue";
         }
-        $query .= " GROUP BY drink.id;";
-
+        $query .= " GROUP BY drink.id";
+        
+        $query .= " LIMIT $limit OFFSET $offset";
+    
         $this->query($query);
         return $this->resultset();
     }

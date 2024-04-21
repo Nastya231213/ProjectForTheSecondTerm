@@ -20,13 +20,14 @@ class Home extends Controller
     {
         $categoryModel = new CategoryModel();
         $dishModel = new DishModel();
-     
+        $limit = 6;
+        $pagination = new Pagination($limit);
+        $offset = $pagination->offset;
 
-        if (isset($_GET) && count($_GET) > 1) {
-            $dishes = $dishModel-> getDishesBySearch($_GET);
-     
+        if (isset($_GET['minValue'])) {
+            $dishes = $dishModel-> getDishesBySearch($_GET,$limit, $offset);     
         } else {
-            $dishes = $dishModel->getAllDishes();
+            $dishes = $dishModel->getAllDishes($limit,$offset);
         }
         $categories = $categoryModel->getAllCategoriesOfDishes();
         if (count($_POST) > 0) {
@@ -37,18 +38,23 @@ class Home extends Controller
             header("Location: " . $_SERVER['REQUEST_URI']);
         }
 
-        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $dishes, 'type' => 'dishes', 'maxPriceForProduct' => getMaxPriceForProducts($dishes)]);
+        $this->view('display_products', ['allCategories' => $categories, 'allProducts' => $dishes, 'pager'=>$pagination,
+        'type' => 'dishes', 'maxPriceForProduct' => getMaxPriceForProducts($dishes)]);
     }
 
     function drinks()
     {
         $categoryModel = new CategoryModel();
         $drinksModel = new DrinksModel();
-        if (isset($_GET) && count($_GET) > 1) {
-            $drinks = $drinksModel-> getDrinksBySearch($_GET);
+        $limit = 6;
+        $pagination = new Pagination($limit);
+        $offset = $pagination->offset;
+
+        if (isset($_GET['minValue'])) {
+            $drinks = $drinksModel-> getDrinksBySearch($_GET,$limit,$offset);
      
         } else {
-            $drinks = $drinksModel->getDrinks();
+            $drinks = $drinksModel->getDrinks($limit,$offset);
         }
         $categories = $categoryModel->getAllCategoriesOfDrinks();
         if (count($_POST) > 0) {
@@ -62,6 +68,7 @@ class Home extends Controller
         }
 
         $this->view('display_products', ['allCategories' => $categories, 
-        'allProducts' => $drinks, 'type' => 'drinks','maxPriceForProduct' => getMaxPriceForProducts($drinks)]);
+        'allProducts' => $drinks, 'type' => 'drinks',
+        'maxPriceForProduct' => getMaxPriceForProducts($drinks),'pager'=>$pagination]);
     }
 }

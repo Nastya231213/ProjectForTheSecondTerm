@@ -16,7 +16,7 @@ nav {
     width: 100%;
 
     z-index: 1000;
-    height: 88px;
+    height: 80px;
     position: fixed;
     top: 0;
     left: 0;
@@ -81,7 +81,21 @@ nav ul li a:hover {
 
 }
 
+#pager {
+    width: 100%;
+    float: left;
 
+}
+
+#pager .page-link {
+    color: #a30c1b;
+}
+
+#pager .active .page-link {
+    background-color: #a30c1b;
+    color: white;
+    border: 0px;
+}
 
 .search {
     display: inline-block;
@@ -772,17 +786,19 @@ textarea {
     justify-content: center;
 }
 
-#cart .checkout-button{
+#cart .checkout-button {
     position: absolute;
     top: 0;
-    right:0;
+    right: 0;
     width: 50%;
     color: #fff;
 
 }
-#cart a{
-    color:#fff;
+
+#cart a {
+    color: #fff;
 }
+
 #cart .checkout-button div {
     background-color: #3ba312;
     height: 60px;
@@ -792,14 +808,17 @@ textarea {
     align-items: center;
     justify-content: center;
 }
+
 #cart .checkout-button div:hover {
     background-color: #56c42a;
- 
+
 }
-.card label{
-    color:#000;
+
+.card label {
+    color: #000;
     font-size: 18px;
 }
+
 #cart .checkout {
     position: absolute;
     bottom: 0;

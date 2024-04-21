@@ -19,7 +19,7 @@ class DishModel extends Model
         return $this->selectOne($this->tableName, ['id' => $id]);
     }
 
-    function getDishesBySearch($dataAboutSearch)
+    function getDishesBySearch($dataAboutSearch,$limit, $offset)
     {
         $keyWord = $dataAboutSearch['find'];
         $categories = isset($dataAboutSearch['categories']) ? $dataAboutSearch['categories'] : array();
@@ -44,6 +44,7 @@ class DishModel extends Model
             $query .= " AND dish.price >= $minValue AND dish.price <= $maxValue";
         }
         $query .= " GROUP BY dish.id";
+        $query .= " LIMIT $limit OFFSET $offset";
 
         $this->query($query);
         return $this->resultset();
@@ -70,15 +71,17 @@ class DishModel extends Model
     }
 
 
-    function getAllDishes()
+    function getAllDishes($limit, $offset)
     {
         $this->query("
-        SELECT dish.*, category.name AS category_name, AVG(review.rating) AS average_rating
-        FROM dish
-        JOIN category ON dish.category_id = category.id
-        LEFT JOIN review ON dish.id = review.product_id
-        GROUP BY dish.id;
-    ");
+            SELECT dish.*, category.name AS category_name, AVG(review.rating) AS average_rating
+            FROM dish
+            JOIN category ON dish.category_id = category.id
+            LEFT JOIN review ON dish.id = review.product_id
+            GROUP BY dish.id
+            LIMIT $limit
+            OFFSET $offset;
+        ");
 
 
         return $this->resultset();

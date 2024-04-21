@@ -102,10 +102,15 @@
                     </div>
                 </form>
             <?php endforeach; ?>
+            
+            
+            <?php $pager->display(); ?>
+
         </div>
+
     <?php else : ?>
         <h2>Not dishes found</h2>
     <?php endif; ?>
-
+    
 </div>
 <?php $this->view("includes/footer") ?>

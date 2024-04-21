@@ -40,8 +40,10 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
+           
 
             </table>
+            <?php $pager->display();?>
         <?php else : ?>
             <h4 class="m-5">No dishes were added</h4>
         <?php endif; ?>

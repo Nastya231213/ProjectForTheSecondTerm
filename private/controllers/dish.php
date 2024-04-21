@@ -10,10 +10,14 @@ class Dish extends Controller
         if (!isAdmin()) {
             $this->redirect('home');
         } else {
+            $limit = 6;
+            $pagination = new Pagination($limit);
+            $offset = $pagination->offset;
             $data = array();
             $data = addMessage($data);
             $dishModel = new DishModel();
-            $data['allDishes'] = $dishModel->getAllDishes();
+            $data['allDishes'] = $dishModel->getAllDishes($limit,$offset);
+            $data['pager'] = $pagination;
 
             $this->view('admin/dishes', $data);
         }
@@ -71,5 +75,11 @@ class Dish extends Controller
 
         $product = $productModel->getProduct($index);
         $this->view('product_information',['product'=>$product,'reviews'=>$reviews]);
+    }
+    function delete($index)
+    {
+        $dishModel =  new DishModel();
+        $dishModel->deleteDish($index);
+        $this->redirect('dish');
     }
 }

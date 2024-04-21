@@ -6,6 +6,9 @@ class Drinks extends Controller
 
     function index()
     {
+        $limit = 6;
+        $pagination = new Pagination($limit);
+        $offset = $pagination->offset;
 
         if (!isAdmin()) {
             $this->redirect('home');
@@ -13,8 +16,12 @@ class Drinks extends Controller
             $data = array();
             $data = addMessage($data);
             $dishModel = new DrinksModel();
-            $data['allDrinks'] = $dishModel->getDrinks();
+            $data['allDrinks'] = $dishModel->getDrinks($limit, $offset);
+            $data['pager'] = $pagination;
+
+            
             $this->view('admin/drinks', $data);
+
         }
     }
 
@@ -60,7 +67,7 @@ class Drinks extends Controller
 
             $categoryModel = new CategoryModel();
             $data['allCategories'] = $categoryModel->getAllCategories();
-            $data['drink'] = $drinkModel->getDrinks($id)[0];
+            $data['drink'] = $drinkModel->getDrink($id)[0];
 
             $this->view('admin/edit-drink', $data);
         }
@@ -74,7 +81,7 @@ class Drinks extends Controller
         $product = $productModel->getDrink($index);
         $this->view('product_information', ['product' => $product, 'reviews' => $reviews]);
     }
-    
+
     function delete($index)
     {
         $drinkModel = new DrinksModel();
