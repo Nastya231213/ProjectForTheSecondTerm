@@ -1,4 +1,5 @@
 <?php $this->view("admin/navigation", ['title' => 'Drinks']) ?>
+<br><br>
 <div class="container mx-auto shadow mt-5 p-4 ">
     <a href="admin" class="btn btn-dark text-color">Back <i class="fas fa-backward"></i></a>
 

@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['database_0',['Database',['../class_database.html',1,'']]],
+  ['database_2ephp_1',['database.php',['../database_8php.html',1,'']]],
+  ['decode_5fparams_2',['decode_params',['../class_liq_pay.html#ab3534171d809c5a28fef74b5fc6833f3',1,'LiqPay']]],
+  ['delete_3',['delete',['../class_category.html#a6e6069d23cc37ecfef0888ca23a3a78f',1,'Category\delete()'],['../class_dish.html#a68a923f1f44ac2a8383f8d2942fe9646',1,'Dish\delete()'],['../class_drinks.html#a7bcb072e5f1597ee4a607850ea9f0bbd',1,'Drinks\delete()'],['../class_order.html#aa0e14daccf913f8482c5468fb2e7acd9',1,'Order\delete()'],['../class_review.html#a4522e8193c7582ca2a183fa8c1d7e1cb',1,'Review\delete()'],['../class_model.html#a861892ba5aacb09b4c79f01e89ad2902',1,'Model\delete()']]],
+  ['deletecategory_4',['deleteCategory',['../class_category_model.html#ab2a8da89b95d58aac42017e6f3a53fa5',1,'CategoryModel']]],
+  ['deletedish_5',['deleteDish',['../class_dish_model.html#aca9f313224ddabb0e89f7fe2316fbf76',1,'DishModel']]],
+  ['deletedrink_6',['deleteDrink',['../class_drinks_model.html#aa95b630a5d59abd4b9d603e2a6921281',1,'DrinksModel']]],
+  ['deleteorder_7',['deleteOrder',['../class_order_model.html#ace1d831f80aba0ef214d2cb9235be272',1,'OrderModel']]],
+  ['deletereview_8',['deleteReview',['../class_review_model.html#aeaa1add2bc4011799b484c9cda9cf458',1,'ReviewModel']]],
+  ['details_9',['details',['../class_dish.html#a19f2280ddc57724b14a077a5d1f9d22e',1,'Dish\details()'],['../class_drinks.html#a976a2fde8289f47278c30c928b236c67',1,'Drinks\details()']]],
+  ['dish_10',['Dish',['../class_dish.html',1,'']]],
+  ['dish_2ephp_11',['dish.php',['../dish_8php.html',1,'']]],
+  ['dishes_12',['dishes',['../class_home.html#aae9ab2b444c3c69d63b22ab29f5169fa',1,'Home']]],
+  ['dishmodel_13',['DishModel',['../class_dish_model.html',1,'']]],
+  ['dishmodel_2ephp_14',['DishModel.php',['../_dish_model_8php.html',1,'']]],
+  ['display_15',['display',['../class_pagination.html#a2bcd0d6a512cb286f8a3f7cc8736cf3c',1,'Pagination']]],
+  ['display_5fyour_5forders_16',['display_your_orders',['../class_order.html#a46f4aa6ba190784960facaf47f435ca7',1,'Order']]],
+  ['drinks_17',['Drinks',['../class_drinks.html',1,'']]],
+  ['drinks_18',['drinks',['../class_home.html#acd4db4990f131575d823852c0030e018',1,'Home']]],
+  ['drinks_2ephp_19',['drinks.php',['../drinks_8php.html',1,'']]],
+  ['drinksmodel_20',['DrinksModel',['../class_drinks_model.html',1,'']]]
+];

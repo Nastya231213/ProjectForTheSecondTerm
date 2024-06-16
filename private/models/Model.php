@@ -1,14 +1,36 @@
 
 
 <?php
+/**
+ * @file Model.php
+ * @brief Модель для роботи з базою даних.
+ */
+
+/**
+ * @class Model
+ * @brief Клас Model забезпечує основні операції з базою даних (CRUD).
+ * 
+ * Наслідує від класу Database і додає методи для вибірки, вставки, видалення та оновлення даних.
+ */
 class Model extends Database
 {
+    /**
+     * @brief Конструктор класу Model.
+     * 
+     * Викликає конструктор батьківського класу Database.
+     */
     public function __construct()
     {
         parent::__construct();
     }
 
-
+    /**
+     * @brief Вибирає дані з таблиці.
+     * 
+     * @param string $table Назва таблиці.
+     * @param array $where Умови для вибірки (опціонально).
+     * @return array Результат вибірки.
+     */
     public function select($table, $where = [])
     {
         $sql = "SELECT * FROM $table";
@@ -33,6 +55,13 @@ class Model extends Database
         return $this->resultset();
     }
 
+    /**
+     * @brief Вибирає один запис з таблиці.
+     * 
+     * @param string $table Назва таблиці.
+     * @param array $where Умови для вибірки (опціонально).
+     * @return mixed Один запис з таблиці.
+     */
     public function selectOne($table, $where = [])
     {
         $sql = "SELECT * FROM $table";
@@ -56,6 +85,14 @@ class Model extends Database
         }
         return $this->single();
     }
+
+    /**
+     * @brief Вставляє новий запис у таблицю.
+     * 
+     * @param string $table Назва таблиці.
+     * @param array $data Дані для вставки.
+     * @return bool Результат виконання запиту.
+     */
     public function insert($table, $data)
     {
         $keys = implode(',', array_keys($data));
@@ -68,6 +105,14 @@ class Model extends Database
         }
         return $this->execute();
     }
+
+    /**
+     * @brief Видаляє запис з таблиці.
+     * 
+     * @param string $table Назва таблиці.
+     * @param array $where Умови для видалення.
+     * @return bool Результат виконання запиту.
+     */
     public function delete($table, $where = [])
     {
         if (empty($where)) {
@@ -89,6 +134,15 @@ class Model extends Database
         }
         return $this->execute();
     }
+
+    /**
+     * @brief Оновлює запис у таблиці.
+     * 
+     * @param string $table Назва таблиці.
+     * @param array $data Дані для оновлення.
+     * @param array $where Умови для оновлення.
+     * @return bool Результат виконання запиту.
+     */
     public function update($table, $data = [], $where = [])
     {
         if (empty($where) && empty($data)) {

@@ -23,7 +23,6 @@
                 <?php foreach ($yourOrders as $order) : ?>
                     <tr>
                         <td><?= $order->id ?></td>
-
                         <td><?= $order->city ?></td>
                         <td><?= $order->state ?></td>
                         <td><?= $order->address ?></td>
@@ -48,7 +47,7 @@
                         </td>
                         <td>
 
-                            <a id="deleteButton" href="dish/delete/<?= $order->id ?>" class="btn btn-sm btn-danger">
+                            <a id="deleteButton" href="<?=ROOT?>/order/delete/<?= $order->id ?>" class="btn btn-sm btn-danger">
                                 Cancel <i class="fas fa-window-close"></i>
                             </a>
                         </td>

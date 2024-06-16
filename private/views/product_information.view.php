@@ -6,8 +6,9 @@
 	<div class="row">
 		<div class="col-md-6 border bg-white rounded">
 			<div class="row">
-				<a href=""><i class="fas fa-home fa-2x ml-3"></i>/</a><a href=""></a>
-
+				<div>
+				<a href="<?=ROOT?>"><i class="fas fa-home fa-2x ml-3"></i></a> / <a href=""><?= $product->name ?></a>
+				</div>
 				<div class="row p-2">
 
 					<div align="center" class="m-3">
@@ -37,7 +38,7 @@
 								Description: <?= $product->description ?>
 							</p>
 							<p>
-								Price: <i class="fas fa-dollar-sign "></i><?= $product->price ?></p>
+								Price: <i class="fas fa-dollar-sign" style="color: black;"></i><?= $product->price ?></p>
 						</div>
 					</div>
 

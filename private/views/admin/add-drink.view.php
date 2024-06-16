@@ -1,8 +1,8 @@
-<?php $this->view("admin/navigation",['title'=>"Add drink"]) ?>
+<?php $this->view("admin/navigation",["title"=>"Add drink"]) ?>
 <div class="container  shadow mt-5 col-md-4 p-5 ">
     <a href="<?= isset($_SERVER['HTTP_REFERER']) ? htmlspecialchars($_SERVER['HTTP_REFERER']) : '#' ?>" class="btn btn-dark text-color">Back <i class="fas fa-backward"></i></a>
 
-    <h3 class="title">Edit Drink</h3>
+    <h3 class="title">Add Drink</h3>
     <form method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>

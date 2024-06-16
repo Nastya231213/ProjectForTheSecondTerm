@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * @file
+ * Drinks.php
+ */
+ /**@class Drinks
+ *
+ * @brief Клас Drinks відповідає за управління напоями в адміністративній частині.
+ * Наслідує від базового контролера Controller.
+ */
 
 class Drinks extends Controller
 {
 
+    /**
+     * Відображає всі напої. Доступно тільки адміністраторам.
+     * Якщо користувач не є адміністратором, перенаправляє на головну сторінку.
+     */
     function index()
     {
         $limit = 6;
@@ -15,16 +28,19 @@ class Drinks extends Controller
         } else {
             $data = array();
             $data = addMessage($data);
-            $dishModel = new DrinksModel();
-            $data['allDrinks'] = $dishModel->getDrinks($limit, $offset);
+            $drinkModel = new DrinksModel();
+            $data['allDrinks'] = $drinkModel->getDrinks($limit, $offset);
             $data['pager'] = $pagination;
 
-            
             $this->view('admin/drinks', $data);
-
         }
     }
 
+    /**
+     * Додає новий напій.
+     * Після успішного додавання виводить повідомлення про успішність операції.
+     * У випадку невдалого додавання виводить повідомлення про помилку.
+     */
     function add()
     {
         if (count($_POST) > 0) {
@@ -40,15 +56,25 @@ class Drinks extends Controller
             } else {
                 $_SESSION['errorMessage'] = 'Something goes wrong..The dish has not been added';
             }
-            $this->redirect('dish');
+            $this->redirect('drink');
         }
         $categoryModel = new CategoryModel();
         $data['allCategories'] = $categoryModel->getAllCategories();
         $this->view('admin/add-drink', $data);
     }
+
+    /**
+     * Відображає форму для редагування існуючого напою за його ідентифікатором.
+     * При відправці форми зберігає змінені дані.
+     * Після успішного редагування виводить повідомлення про успішність операції.
+     * У випадку невдалого редагування виводить повідомлення про помилку.
+     *
+     * @param int $id Ідентифікатор напою, який потрібно редагувати.
+     */
     function edit($id)
     {
         $drinkModel = new DrinksModel();
+
         if (count($_POST) > 0) {
             $name = $_POST['name'];
             $composition = $_POST['composition'];
@@ -72,6 +98,12 @@ class Drinks extends Controller
             $this->view('admin/edit-drink', $data);
         }
     }
+
+    /**
+     * Відображає деталі напою за його ідентифікатором, включаючи відгуки користувачів.
+     *
+     * @param int $index Ідентифікатор напою, для якого відображаються деталі.
+     */
     function details($index)
     {
         $productModel = new DrinksModel();
@@ -82,10 +114,15 @@ class Drinks extends Controller
         $this->view('product_information', ['product' => $product, 'reviews' => $reviews]);
     }
 
+    /**
+     * Видаляє напій за його ідентифікатором.
+     *
+     * @param int $index Ідентифікатор напою, який потрібно видалити.
+     */
     function delete($index)
     {
         $drinkModel = new DrinksModel();
         $drinkModel->deleteDrink($index);
-        $this->view('admin/drinks');
+        $this->redirect('drinks');
     }
 }
